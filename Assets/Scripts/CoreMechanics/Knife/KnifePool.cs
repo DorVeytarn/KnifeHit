@@ -20,8 +20,26 @@ public class KnifePool : MonoBehaviour
         SceneComponentProvider.RegisterComponent(typeof(KnifePool), this);
     }
 
+    private void ReturnItems()
+    {
+        for (int i = 0; i < usedKnives.Count; i++)
+        {
+            usedKnives[i].gameObject.transform.SetParent(spawnPoint);
+            usedKnives[i].gameObject.transform.localPosition = Vector3.zero;
+            usedKnives[i].gameObject.transform.rotation = Quaternion.identity;
+            usedKnives[i].gameObject.SetActive(false);
+
+            knives.Add(usedKnives[i]);
+        }
+
+        usedKnives.Clear();
+    }
+
     public void CreateKnives(int amount = 0)
     {
+        if (usedKnives.Count > 0)
+            ReturnItems();
+
         if (amount > knives.Count)
             amount -= knives.Count;
 

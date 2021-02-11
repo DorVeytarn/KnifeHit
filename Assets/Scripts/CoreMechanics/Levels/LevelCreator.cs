@@ -23,6 +23,8 @@ public class LevelCreator : MonoBehaviour
     {
         knifePool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
         target = SceneComponentProvider.GetComponent(typeof(Target)) as Target;
+
+        CreateLevel();
     }
 
     public void CreateLevel()
@@ -31,6 +33,8 @@ public class LevelCreator : MonoBehaviour
         currentLevelID = CurrentLevel.ID;
 
         target.SetTarget(CurrentLevel.RotationCurve, CurrentLevel.Material, CurrentLevel.RewardItemsAmount, CurrentLevel.ObstaclesItemsAmount);
-        knifePool.CreateKnifes(CurrentLevel.RequiredKnifeAmount);
+        knifePool.CreateKnives(CurrentLevel.RequiredKnifeAmount);
+
+        currentLevelNumber++;
     }
 }

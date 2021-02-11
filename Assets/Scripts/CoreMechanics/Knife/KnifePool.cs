@@ -20,9 +20,10 @@ public class KnifePool : MonoBehaviour
         SceneComponentProvider.RegisterComponent(typeof(KnifePool), this);
     }
 
-    public void CreateKnifes(int amount = 0)
+    public void CreateKnives(int amount = 0)
     {
-        amount = (amount != 0) ? amount : knifeAmount;
+        if (amount > knives.Count)
+            amount -= knives.Count;
 
         for (int i = 0; i < amount; i++)
         {

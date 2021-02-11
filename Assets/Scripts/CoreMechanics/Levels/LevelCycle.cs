@@ -6,6 +6,7 @@ using utils.singletone;
 public class LevelCycle : MonoBehaviour
 {
     private KnifeLauncher knifeLauncher;
+    private LevelCreator levelCreator;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class LevelCycle : MonoBehaviour
     private void Start()
     {
         knifeLauncher = SceneComponentProvider.GetComponent(typeof(KnifeLauncher)) as KnifeLauncher;
+        levelCreator = SceneComponentProvider.GetComponent(typeof(LevelCreator)) as LevelCreator;
 
         if(knifeLauncher != null)
         {
@@ -34,7 +36,15 @@ public class LevelCycle : MonoBehaviour
 
     private void LevelPassed()
     {
-        Debug.Log("LevelPassed");
+        if (levelCreator == null)
+            return;
+
+        if (levelCreator.CurrentLevel.IsBossLevel)
+        {
+            Debug.Log("NEW KNIFE BITCH!");
+        }
+
+        levelCreator.CreateLevel();
     }
 
     private void LevelFailed()

@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Knife : MonoBehaviour
 {
+    [SerializeField] private BoxCollider2D selfBoxCollider;
+
     private Coroutine flyingCoroutine;
     private float speed;
     private float offset;
@@ -51,6 +53,7 @@ public class Knife : MonoBehaviour
 
             transform.Translate(Vector3.up * speed * Time.deltaTime);
         }
+        isFlying = false;
 
         Vector3 targetPosition = targetParent.transform.position;
         targetPosition.y = targetParent.transform.position.y - offset;
@@ -63,14 +66,11 @@ public class Knife : MonoBehaviour
 
     private void SuccessfulFinished()
     {
-        Debug.Log("SuccessfulFinished");
-        isFlying = false;
         succsesFinished?.Invoke();
     }
 
     private void KnifeClash()
     {
-        Debug.Log("KnifeClash");
         failure?.Invoke();
     }
 }

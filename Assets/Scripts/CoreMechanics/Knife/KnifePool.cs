@@ -13,16 +13,14 @@ public class KnifePool : MonoBehaviour
     private List<Knife> knives = new List<Knife>();
     private List<Knife> usedKnives = new List<Knife>();
 
-    public bool IsLastKnife => knives.Count == 1;
+    public bool IsLastKnife => knives.Count == 0;
 
-    private void Start()
+    private void Awake()
     {
-        SceneComponentProvider.RegisterComponent(typeof(KnifeLauncher), this);
-
-        CreateKnifes();
+        SceneComponentProvider.RegisterComponent(typeof(KnifePool), this);
     }
 
-    private void CreateKnifes(int amount = 0)
+    public void CreateKnifes(int amount = 0)
     {
         amount = (amount != 0) ? amount : knifeAmount;
 

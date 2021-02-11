@@ -16,6 +16,11 @@ public class KnifeLauncher : MonoBehaviour
     public Action LastKnifeFinished;
     public Action KnifeClashed;
 
+    private void Awake()
+    {
+        SceneComponentProvider.RegisterComponent(typeof(KnifeLauncher), this);
+    }
+
     private void Start()
     {
         tapInput = SceneComponentProvider.GetComponent(typeof(TapInput)) as TapInput;

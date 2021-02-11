@@ -7,9 +7,13 @@ public class TapInput : MonoBehaviour, IPointerDownHandler
 {
     public Action Taped;
 
-    private void Start()
+    private void Awake()
     {
         SceneComponentProvider.RegisterComponent(typeof(TapInput), this);
+    }
+
+    private void Start()
+    {
         transform.SetAsLastSibling();
     }
 

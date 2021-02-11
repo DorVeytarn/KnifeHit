@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogRotation : MonoBehaviour
+public class TargetRotation : MonoBehaviour
 {
     [SerializeField] private AnimationCurve rotationCurve;
     [SerializeField] private WrapMode curveMode;
@@ -10,17 +10,10 @@ public class LogRotation : MonoBehaviour
     private float currentTime;
     private Coroutine rotationCoroutine;
 
-    private void Start()
-    {
-        rotationCurve.postWrapMode = curveMode;
-
-        StartCoroutine(StartRotation());
-    }
-
-    public void SetCurve(AnimationCurve rotationCurve, WrapMode curveMode)
+    public void SetCurve(AnimationCurve rotationCurve, WrapMode curveMode = WrapMode.Loop)
     {
         this.rotationCurve = rotationCurve;
-        this.curveMode = curveMode;
+        rotationCurve.postWrapMode = curveMode;
 
         rotationCoroutine = StartCoroutine(StartRotation());
     }

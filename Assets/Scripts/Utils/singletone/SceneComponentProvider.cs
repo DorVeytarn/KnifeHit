@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using Object = UnityEngine.Object;
 
-namespace Assets.Modules.utils.singletone
+namespace utils.singletone
 {
     /*
      * Класс, позволяющий не пробрасывать в сцене ссылки на кучу компонентов типа

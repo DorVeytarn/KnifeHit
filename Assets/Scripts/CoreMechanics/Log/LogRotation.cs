@@ -27,8 +27,11 @@ public class LogRotation : MonoBehaviour
 
     public void StopRotation()
     {
-        StopCoroutine(rotationCoroutine);
-        rotationCoroutine = null;
+        if(rotationCoroutine != null)
+        {
+            StopCoroutine(rotationCoroutine);
+            rotationCoroutine = null;
+        }
     }
 
     private IEnumerator StartRotation()

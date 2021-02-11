@@ -10,6 +10,7 @@ public class TapInput : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         SceneComponentProvider.RegisterComponent(typeof(TapInput), this);
+        transform.SetAsLastSibling();
     }
 
     public void OnPointerDown(PointerEventData eventData)

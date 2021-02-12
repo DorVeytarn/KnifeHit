@@ -15,6 +15,7 @@ public class TargetRotation : MonoBehaviour
         this.rotationCurve = rotationCurve;
         rotationCurve.postWrapMode = curveMode;
 
+        StopRotation();
         rotationCoroutine = StartCoroutine(StartRotation());
     }
 

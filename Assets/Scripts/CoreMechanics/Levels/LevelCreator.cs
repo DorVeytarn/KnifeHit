@@ -38,5 +38,8 @@ public class LevelCreator : MonoBehaviour
         knifePool.SetFirstKnive();
 
         currentLevelNumber++;
+
+        if (currentLevelNumber >= database.Levels.Length)
+            currentLevelNumber = Random.Range(0, database.Levels.Length - 1);
     }
 }

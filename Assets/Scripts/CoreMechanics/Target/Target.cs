@@ -10,7 +10,7 @@ public class Target : MonoBehaviour
 
     [Header("Items")]
     [SerializeField] private RewardItemsPool rewardsPool;
-    [SerializeField] private KnifePool obstaclesPool;
+    [SerializeField] private ObstacleItemsPool obstaclesPool;
 
     [Header("View")]
     [SerializeField] private MeshRenderer meshRenderer;
@@ -22,15 +22,15 @@ public class Target : MonoBehaviour
     private void Awake()
     {
         SceneComponentProvider.RegisterComponent(typeof(Target), this);
+
+        rewardsPool.CreateItems(defaultRewardsAmount);
+        obstaclesPool.CreateItems(defaultObstacleAmount);
     }
 
     private void Start()
     {
         //rewardsPool = SceneComponentProvider.GetComponent(typeof(RewardItemsPool)) as RewardItemsPool;
         //obstaclesPool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
-
-        rewardsPool.CreateItems(defaultRewardsAmount);
-        obstaclesPool.CreateItems(defaultObstacleAmount);
     }
 
     public void SetTarget(AnimationCurve rotationCurve, Material targetMaterial, Vector2[] rewardItemsPositions, Vector2[] obstaclesItemsPositions)

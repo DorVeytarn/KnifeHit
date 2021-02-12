@@ -30,7 +30,7 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
         usedItems.Clear();
     }
 
-    private void SetItemstActive(int amount, bool active)
+    private void SetItemsActive(int amount, bool active)
     {
         for (int i = 0; i < amount; i++)
         {
@@ -42,6 +42,9 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (usedItems.Count > 0)
             ReturnItems();
+
+        if (items.Count >= amount)
+            return;
 
         if (amount > items.Count)
             amount -= items.Count;
@@ -55,7 +58,7 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    public T GetNextItem()
+    public T GetNextItem(bool activateNext = true)
     {
         for (int i = 0; i < items.Count; i++)
         {
@@ -63,7 +66,7 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
             {
                 var item = items[i];
 
-                if (i + 1 < items.Count)
+                if (activateNext && i + 1 < items.Count)
                     items[i + 1].gameObject.SetActive(true);
 
                 usedItems.Add(items[i]);
@@ -78,20 +81,26 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
 
     public void SetItemsAtPosition(Vector2[] positions)
     {
+        if (usedItems.Count > 0)
+            ReturnItems();
+
         if (CheckRequiredItemsAmount(positions.Length) == false)
             CreateItems(positions.Length - items.Count);
 
-        SetItemstActive(positions.Length, true);
+        SetItemsActive(positions.Length, true);
 
         for (int i = 0; i < positions.Length; i++)
         {
-            var item = GetNextItem();
-            item.gameObject.transform.SetPositionAndRotation(positions[i], spawnPoint.rotation);
+            var item = GetNextItem(false);
+            item.gameObject.transform.localPosition = positions[i];
+
+            Vector3 supportingVector = (positions[i].x > 0) ? Vector3.up : Vector3.down;
+            item.gameObject.transform.localRotation = Quaternion.Euler(0, 0, Vector3.Angle(supportingVector, spawnPoint.localPosition - item.gameObject.transform.localPosition));
         }
     }
 
     public bool CheckRequiredItemsAmount(int requiredAmount)
     {
-        return items.Count == requiredAmount;
+        return items.Count >= requiredAmount;
     }
 }

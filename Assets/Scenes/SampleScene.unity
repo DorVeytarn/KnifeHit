@@ -166,10 +166,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 133351207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edbcddf6d495235499f40937a989e9cb, type: 3}
+  m_Script: {fileID: 11500000, guid: ddf6338b60f76a64083940f26361839c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 5530826727688580119, guid: 3c5882f0bcf8aaa40a2ed7bfe023cd10,
+  objectToSpawn: {fileID: 5530826727688580119, guid: 00c6b16362e95dc468c0c5f261ff29de,
     type: 3}
   spawnPoint: {fileID: 133351208}
 --- !u!1 &149613672

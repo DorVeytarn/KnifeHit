@@ -30,7 +30,7 @@ public class Knife : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(isFlying && collision.TryGetComponent(out Knife knife))
+        if(isFlying && collision.TryGetComponent(out Knife knife) || collision.TryGetComponent(out ObstacleItem obstacle))
         {
             //if(flyingCoroutine != null)
             //{

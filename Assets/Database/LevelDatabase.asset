@@ -39,14 +39,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
-    ObstaclesItemsPositions:
-    - {x: 210, y: 173}
-    - {x: -183, y: 205}
-    RewardItemsPositions:
-    - {x: 203, y: 236}
-    - {x: 324, y: 11}
-    - {x: 280, y: -148}
-    - {x: -285, y: -132}
+    ObstaclesItemsAmount: 0
+    ObstaclesItemsPositions: []
+    RandomObstacle: 1
+    RandomObstacleRange: {x: 0, y: 0}
+    RandomObstacleChance: 0
+    RewardItemsAmount: 0
+    RewardItemsPositions: []
+    RandomReward: 1
+    RandomRewardRange: {x: 0, y: 0}
+    RandomRewardChance: 0
     Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
     rewardKnifeID: 
     IsBossLevel: 0
@@ -85,8 +87,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
+    ObstaclesItemsAmount: 0
     ObstaclesItemsPositions: []
+    RandomObstacle: 0
+    RandomObstacleRange: {x: 0, y: 0}
+    RandomObstacleChance: 0
+    RewardItemsAmount: 0
     RewardItemsPositions: []
+    RandomReward: 0
+    RandomRewardRange: {x: 0, y: 0}
+    RandomRewardChance: 0
     Material: {fileID: 2100000, guid: a9627858e9f0f26418d2703d7323d5ef, type: 2}
     rewardKnifeID: 
     IsBossLevel: 0
@@ -152,11 +162,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
-    ObstaclesItemsPositions:
-    - {x: 0, y: 0}
-    - {x: 0, y: 0}
-    RewardItemsPositions:
-    - {x: 0, y: 0}
+    ObstaclesItemsAmount: 0
+    ObstaclesItemsPositions: []
+    RandomObstacle: 0
+    RandomObstacleRange: {x: 0, y: 0}
+    RandomObstacleChance: 0
+    RewardItemsAmount: 0
+    RewardItemsPositions: []
+    RandomReward: 0
+    RandomRewardRange: {x: 0, y: 0}
+    RandomRewardChance: 0
     Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
     rewardKnifeID: 
     IsBossLevel: 0

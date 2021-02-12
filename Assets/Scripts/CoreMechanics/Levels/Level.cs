@@ -11,9 +11,21 @@ public class Level
     public int RequiredKnifeAmount;
     public AnimationCurve RotationCurve;
 
-    [Header("Items")]
+    [Header("Obstacle")]
+    public int ObstaclesItemsAmount;
     public Vector2[] ObstaclesItemsPositions;
+
+    public bool RandomObstacle;
+    public Vector2Int RandomObstacleRange;
+    public float RandomObstacleChance;
+
+    [Header("Reward")]
+    public int RewardItemsAmount;
     public Vector2[] RewardItemsPositions;
+
+    public bool RandomReward;
+    public Vector2Int RandomRewardRange;
+    public float RandomRewardChance;
 
     [Header("View")]
     public Material Material;

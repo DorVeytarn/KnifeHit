@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using utils.singletone;
+using Utils.Singletone;
 
 public class KnifeLauncher : MonoBehaviour
 {
@@ -37,14 +37,14 @@ public class KnifeLauncher : MonoBehaviour
 
     private void LaunchKnife()
     {
-        if (knifePool == null || knifePool.CheckKnifeAmount() == false)
+        if (knifePool == null || knifePool.CanGetItem == false)
             return;
 
-        var knife = knifePool.GetNextKnife();
+        var knife = knifePool.GetNextItem();
 
         Action lastKnifeCallback = null;
 
-        if (knifePool.IsLastKnife)
+        if (knifePool.IsLastItem)
             lastKnifeCallback = LastKnifeFinished;
 
         knife.SetAndLaunchKnife(targetParent.transform, speed, offset, lastKnifeCallback, KnifeClashed);

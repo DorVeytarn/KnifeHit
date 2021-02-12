@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using utils.singletone;
+using Utils.Singletone;
 
 public class LevelCreator : MonoBehaviour
 {
@@ -32,8 +32,10 @@ public class LevelCreator : MonoBehaviour
         CurrentLevel = database.Levels[currentLevelNumber];
         currentLevelID = CurrentLevel.ID;
 
-        target.SetTarget(CurrentLevel.RotationCurve, CurrentLevel.Material, CurrentLevel.RewardItemsAmount, CurrentLevel.ObstaclesItemsAmount);
-        knifePool.CreateKnives(CurrentLevel.RequiredKnifeAmount);
+        target.SetTarget(CurrentLevel.RotationCurve, CurrentLevel.Material, CurrentLevel.RewardItemsPositions, CurrentLevel.ObstaclesItemsPositions);
+
+        knifePool.CreateItems(CurrentLevel.RequiredKnifeAmount);
+        knifePool.SetFirstKnive();
 
         currentLevelNumber++;
     }

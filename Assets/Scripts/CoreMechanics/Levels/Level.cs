@@ -6,17 +6,19 @@ using UnityEngine;
 public class Level
 {
     public string ID;
-    public bool IsBossLevel;
 
     [Header("Settings")]
     public int RequiredKnifeAmount;
     public AnimationCurve RotationCurve;
-    public int ObstaclesItemsAmount;
-    public int RewardItemsAmount;
+
+    [Header("Items")]
+    public Vector2[] ObstaclesItemsPositions;
+    public Vector2[] RewardItemsPositions;
 
     [Header("View")]
     public Material Material;
 
     [Header("If Is Boss")]
     public string rewardKnifeID;
+    public bool IsBossLevel;
 }

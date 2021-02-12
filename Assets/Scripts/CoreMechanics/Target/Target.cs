@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils.Singletone;
 
 public class Target : MonoBehaviour
 {
+    public const int defaultRewardsAmount = 10;
+    public const int defaultObstacleAmount = 10;
+
+    [Header("Items")]
+    [SerializeField] private RewardItemsPool rewardsPool;
+    [SerializeField] private KnifePool obstaclesPool;
+
     [Header("View")]
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Animator selfAnimator;
@@ -11,11 +19,26 @@ public class Target : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private TargetRotation rotation;
 
-    public void SetTarget(AnimationCurve rotationCurve, Material targetMaterial, int rewardItemsAmount, int obstacleItemsAmount)
+    private void Awake()
+    {
+        SceneComponentProvider.RegisterComponent(typeof(Target), this);
+    }
+
+    private void Start()
+    {
+        //rewardsPool = SceneComponentProvider.GetComponent(typeof(RewardItemsPool)) as RewardItemsPool;
+        //obstaclesPool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
+
+        rewardsPool.CreateItems(defaultRewardsAmount);
+        obstaclesPool.CreateItems(defaultObstacleAmount);
+    }
+
+    public void SetTarget(AnimationCurve rotationCurve, Material targetMaterial, Vector2[] rewardItemsPositions, Vector2[] obstaclesItemsPositions)
     {
         meshRenderer.material = targetMaterial;
 
-        Debug.Log("rewardItemsAmount: " + rewardItemsAmount + " obstacleItemsAmount: " + obstacleItemsAmount);
+        rewardsPool.SetItemsAtPosition(rewardItemsPositions);
+        obstaclesPool.SetItemsAtPosition(obstaclesItemsPositions);
 
         selfAnimator.SetTrigger("create");
         rotation.SetCurve(rotationCurve);

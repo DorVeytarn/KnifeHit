@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using utils.singletone;
+using Utils.Singletone;
 
 public class LevelCycle : MonoBehaviour
 {

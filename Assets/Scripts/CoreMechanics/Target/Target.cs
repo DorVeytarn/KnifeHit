@@ -33,7 +33,7 @@ public class Target : MonoBehaviour
         //obstaclesPool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
     }
 
-    public void SetTarget(AnimationCurve rotationCurve, Material targetMaterial, Vector2[] rewardItemsPositions, Vector2[] obstaclesItemsPositions)
+    public void SetTarget(AnimationCurve rotationCurve, Material targetMaterial, List<Vector2> rewardItemsPositions, List<Vector2> obstaclesItemsPositions)
     {
         meshRenderer.material = targetMaterial;
 

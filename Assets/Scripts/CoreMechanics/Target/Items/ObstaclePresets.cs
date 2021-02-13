@@ -6,12 +6,12 @@ using UnityEngine;
 public class PositionPreset
 {
     public int currentPresetsAmount;
-    public Vector2[] preset;
+    public List<Vector2> preset;
 
     public PositionPreset(int currentPresetsAmount)
     {
         this.currentPresetsAmount = currentPresetsAmount;
-        preset = new Vector2[currentPresetsAmount];
+        preset = new List<Vector2>(currentPresetsAmount);
     }
 }
 
@@ -22,4 +22,28 @@ public class ObstaclePresets : ScriptableObject
     public List<PositionPreset> TwoObstaclePresets = new List<PositionPreset>();
     public List<PositionPreset> ThreeObstaclePresets = new List<PositionPreset>();
     public List<PositionPreset> FoureObstaclePresets = new List<PositionPreset>();
+
+
+    public List<Vector2> GetPreset(int minObstacleInPreset, int maxObstacleInPreset)
+    {
+        int obstacleAmount = -1;
+
+        obstacleAmount = (minObstacleInPreset == maxObstacleInPreset) ? minObstacleInPreset : Random.Range(minObstacleInPreset, maxObstacleInPreset + 1);
+
+        switch (obstacleAmount)
+        {
+            case 0:
+                return new List<Vector2>(0);
+            case 1:
+                return OneObstaclePresets[Random.Range(0, OneObstaclePresets.Count)].preset;
+            case 2:
+                return TwoObstaclePresets[Random.Range(0, TwoObstaclePresets.Count)].preset;
+            case 3:
+                return ThreeObstaclePresets[Random.Range(0, ThreeObstaclePresets.Count)].preset;
+            case 4:
+                return FoureObstaclePresets[Random.Range(0, FoureObstaclePresets.Count)].preset;
+            default:
+                return null;
+        }
+    }
 }

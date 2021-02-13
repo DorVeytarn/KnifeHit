@@ -79,17 +79,17 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
         return default;
     }
 
-    public void SetItemsAtPosition(Vector2[] positions)
+    public void SetItemsAtPosition(List<Vector2> positions)
     {
         if (usedItems.Count > 0)
             ReturnItems();
 
-        if (CheckRequiredItemsAmount(positions.Length) == false)
-            CreateItems(positions.Length - items.Count);
+        if (CheckRequiredItemsAmount(positions.Count) == false)
+            CreateItems(positions.Count - items.Count);
 
-        SetItemsActive(positions.Length, true);
+        SetItemsActive(positions.Count, true);
 
-        for (int i = 0; i < positions.Length; i++)
+        for (int i = 0; i < positions.Count; i++)
         {
             var item = GetNextItem(false);
             item.gameObject.transform.localPosition = positions[i];

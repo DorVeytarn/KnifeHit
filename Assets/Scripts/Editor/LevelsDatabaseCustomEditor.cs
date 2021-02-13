@@ -9,25 +9,36 @@ public class LevelsDatabaseCustomEditor : Editor
 {
     private LevelsDatabase database;
     private List<Level> levels;
+    private SerializedProperty obstaclePresets;
+    private ObstaclePresets presets;
 
     private void OnEnable()
     {
         database = (LevelsDatabase)target;
         levels = database.Levels;
+        obstaclePresets = serializedObject.FindProperty("ObstaclePresets");
     }
 
     public override void OnInspectorGUI()
     {
+        EditorGUILayout.PropertyField(obstaclePresets);
+        serializedObject.ApplyModifiedProperties();
+
+        presets = obstaclePresets.objectReferenceValue as ObstaclePresets;
+
         for (int i = 0; i < levels.Count; i++)
         {
             var level = levels[i];
 
+            GUILayout.Label("--------------------------Level " + level.ID + "--------------------------", EditorStyles.boldLabel);
             level.ID = EditorGUILayout.TextField("ID", level.ID);
 
             level.RequiredKnifeAmount = EditorGUILayout.IntField("Required Knife Amount", level.RequiredKnifeAmount);
 
             level.RotationCurve = EditorGUILayout.CurveField("Rotation Curve", level.RotationCurve);
 
+            GUILayout.Space(4);
+            GUILayout.Label("--------------------------Reward Items--------------------------");
             if (level.RandomReward = EditorGUILayout.Toggle("Random Reward", level.RandomReward))
             {
                 level.RandomRewardRange = EditorGUILayout.Vector2IntField("Range", level.RandomRewardRange);
@@ -39,48 +50,78 @@ public class LevelsDatabaseCustomEditor : Editor
                 if (level.RewardItemsAmount < 0)
                     level.RewardItemsAmount = 0;
 
-                level.RewardItemsPositions = new Vector2[level.RewardItemsAmount];
+                level.RewardItemsPositions = new List<Vector2>(level.RewardItemsAmount);
 
                 if (level.RewardItemsAmount != 0)
                 {
-                    for (int j = 0; j < level.RewardItemsPositions.Length; j++)
+                    for (int j = 0; j < level.RewardItemsPositions.Count; j++)
                     {
                         level.RewardItemsPositions[j] = EditorGUILayout.Vector2Field(j.ToString() + " Position", level.RewardItemsPositions[j]);
                     }
                 }
             }
 
+            GUILayout.Space(4);
+            GUILayout.Label("--------------------------Obstacle Items--------------------------");
             if (level.RandomObstacle = EditorGUILayout.Toggle("Random Obstacle", level.RandomObstacle))
             {
                 level.RandomObstacleRange = EditorGUILayout.Vector2IntField("Range", level.RandomObstacleRange);
-                level.RandomObstacleChance = EditorGUILayout.Slider("Chance", level.RandomObstacleChance, 0f, 1f);
-            }
-            else
-            {
-                level.ObstaclesItemsAmount = EditorGUILayout.IntField("Obstacle Amount", level.ObstaclesItemsAmount);
-                if (level.ObstaclesItemsAmount < 0)
-                    level.ObstaclesItemsAmount = 0;
 
-                level.ObstaclesItemsPositions = new Vector2[level.ObstaclesItemsAmount];
+                if (GUILayout.Button("Randomaze!"))
+                {
+                    level.ObstaclesItemsPositions = presets.GetPreset(level.RandomObstacleRange.x, level.RandomObstacleRange.y);
+                    level.ObstaclesItemsAmount = level.ObstaclesItemsPositions.Count;
+                }
 
                 if (level.ObstaclesItemsAmount != 0)
                 {
-                    for (int j = 0; j < level.ObstaclesItemsPositions.Length; j++)
+                    for (int j = 0; j < level.ObstaclesItemsPositions.Count; j++)
+                    {
+                        level.ObstaclesItemsPositions[j] = EditorGUILayout.Vector2Field(j.ToString() + " Position", level.ObstaclesItemsPositions[j]);
+                    }
+                }
+            }
+            else
+            {
+                level.ObstaclesItemsAmount = EditorGUILayout.IntSlider("Obstacle Amount", level.ObstaclesItemsAmount, 0, 15);
+
+                if(level.ObstaclesItemsPositions == null)
+                {
+                    level.ObstaclesItemsPositions = new List<Vector2>(level.ObstaclesItemsAmount);
+                }
+                else
+                {
+                    if (level.ObstaclesItemsPositions.Count == level.ObstaclesItemsAmount)
+                    {
+
+                    }
+                    else if (level.ObstaclesItemsPositions.Count >= level.ObstaclesItemsAmount)
+                        level.ObstaclesItemsPositions.RemoveRange(level.ObstaclesItemsAmount, level.ObstaclesItemsPositions.Count - level.ObstaclesItemsAmount);
+                    else
+                        level.ObstaclesItemsPositions.Add(Vector2.zero);
+                }
+
+                if (level.ObstaclesItemsAmount < 0)
+                    level.ObstaclesItemsAmount = 0;
+
+                if (level.ObstaclesItemsAmount != 0)
+                {
+                    for (int j = 0; j < level.ObstaclesItemsPositions.Count; j++)
                     {
                         level.ObstaclesItemsPositions[j] = EditorGUILayout.Vector2Field(j.ToString() + " Position", level.ObstaclesItemsPositions[j]);
                     }
                 }
             }
 
-            if(level.IsBossLevel = EditorGUILayout.Toggle("Is Boss", level.IsBossLevel))
+            if (level.IsBossLevel = EditorGUILayout.Toggle("Is Boss", level.IsBossLevel))
             {
                 level.rewardKnifeID = EditorGUILayout.TextField("Reward Knife", level.rewardKnifeID);
             }
 
-            GUILayout.Space(7);
+            GUILayout.Space(14);
         }
 
-        if(GUILayout.Button("Add Level"))
+        if (GUILayout.Button("Add Level"))
         {
             levels.Add(new Level());
         }

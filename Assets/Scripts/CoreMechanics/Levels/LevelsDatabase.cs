@@ -7,6 +7,8 @@ public class LevelsDatabase : ScriptableObject
 {
     [SerializeField] private List<Level> levels;
 
+    public ObstaclePresets ObstaclePresets;
+
     public List<Level> Levels => levels;
     public int LevelsAmount => levels.Count;
 }

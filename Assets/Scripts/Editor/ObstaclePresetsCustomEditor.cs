@@ -52,7 +52,7 @@ public class ObstaclePresetsCustomEditor : Editor
             }
             GUILayout.EndHorizontal();
 
-            for (int j = 0; j < positions[i].preset.Length; j++)
+            for (int j = 0; j < positions[i].preset.Count; j++)
                 positions[i].preset[j] = EditorGUILayout.Vector2Field("Position", positions[i].preset[j]);
         }
     }

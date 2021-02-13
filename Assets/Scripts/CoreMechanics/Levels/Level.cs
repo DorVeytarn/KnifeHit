@@ -13,15 +13,14 @@ public class Level
 
     [Header("Obstacle")]
     public int ObstaclesItemsAmount;
-    public Vector2[] ObstaclesItemsPositions;
+    public List<Vector2> ObstaclesItemsPositions;
 
     public bool RandomObstacle;
     public Vector2Int RandomObstacleRange;
-    public float RandomObstacleChance;
 
     [Header("Reward")]
     public int RewardItemsAmount;
-    public Vector2[] RewardItemsPositions;
+    public List<Vector2> RewardItemsPositions;
 
     public bool RandomReward;
     public Vector2Int RandomRewardRange;

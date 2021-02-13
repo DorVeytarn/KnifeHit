@@ -9,7 +9,7 @@ public class Level
 
     [Header("Settings")]
     public int RequiredKnifeAmount;
-    public AnimationCurve RotationCurve;
+    public AnimationCurve RotationCurve = AnimationCurve.Linear(0, 0, 10, 360);
 
     [Header("Obstacle")]
     public int ObstaclesItemsAmount;

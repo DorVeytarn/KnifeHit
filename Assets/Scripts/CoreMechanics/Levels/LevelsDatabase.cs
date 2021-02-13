@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New LevelDatabase", menuName = "LevelDatabase", order = 1)]
 public class LevelsDatabase : ScriptableObject
 {
-    [SerializeField] private Level[] levels;
+    [SerializeField] private List<Level> levels;
 
-    public Level[] Levels => levels;
-    public int LevelsAmount => levels.Length;
+    public List<Level> Levels => levels;
+    public int LevelsAmount => levels.Count;
 }

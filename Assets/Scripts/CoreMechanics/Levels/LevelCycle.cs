@@ -49,6 +49,6 @@ public class LevelCycle : MonoBehaviour
 
     private void LevelFailed()
     {
-        Debug.Log("LevelFailed");
+        PopupManager.Instance.OpenPopup(PopupList.Loss);
     }
 }

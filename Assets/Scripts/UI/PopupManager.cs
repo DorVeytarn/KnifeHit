@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class PopupManager : Singleton<PopupManager>
 {
-    [SerializeField] private List<GameObject> immortalPopups = new List<GameObject>();
+    [SerializeField] private List<GameObject> popupsList = new List<GameObject>();
+    [SerializeField] private Transform popupParent;
 
     public Action PopupOpeningStarted;
     public Action PopupClosingStarted;
 
-    private Transform popupParent;
     private List<Popup> popupStack = new List<Popup>();
 
     public int PopupCount => popupStack.Count;
+    public static List<GameObject> PopupsList => PopupManager.Instance.popupsList;
 
     public void RegistratePopupParent(Transform parent)
     {
@@ -38,14 +39,14 @@ public class PopupManager : Singleton<PopupManager>
         closingPopup.Close();
     }
 
-    public void OpenPopup(string popupName, Action popupOpenedCallback, Action popupClosedCallback)
+    public void OpenPopup(string popupName, Action popupOpenedCallback = null, Action popupClosedCallback = null)
     {
-        OpenPopupCoroutine(popupName, popupOpenedCallback, popupClosedCallback);
+        StartCoroutine(OpenPopupCoroutine(popupName, popupOpenedCallback, popupClosedCallback));
     }
 
-    private IEnumerator OpenPopupCoroutine(string popupName, Action popupOpenedCallback, Action popupClosedCallback)
+    private IEnumerator OpenPopupCoroutine(string popupName, Action popupOpenedCallback = null, Action popupClosedCallback = null)
     {
-        PopupOpeningStarted.Invoke();
+        PopupOpeningStarted?.Invoke();
 
         if (popupStack.Contains(TryGetPopup(popupName)))
         {
@@ -60,12 +61,12 @@ public class PopupManager : Singleton<PopupManager>
         CreatePopup(popupName, popupOpenedCallback, popupClosedCallback);
     }
 
-    private void CreatePopup(string popupName, Action popupOpenedCallback, Action popupClosedCallback)
+    private void CreatePopup(string popupName, Action popupOpenedCallback = null, Action popupClosedCallback = null)
     {
-        if (immortalPopups.Count == 0)
+        if (popupsList.Count == 0)
             return;
 
-        var popupObject = Instantiate(immortalPopups.Find(popup => name == popupName), popupParent);
+        var popupObject = Instantiate(popupsList.Find(popup => popup.name == popupName), popupParent);
         var newPopup = popupObject.GetComponent<Popup>();
 
         popupStack.Add(newPopup);

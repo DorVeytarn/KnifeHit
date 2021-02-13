@@ -8,7 +8,7 @@ using UnityEngine;
 public class LevelsDatabaseCustomEditor : Editor
 {
     private LevelsDatabase database;
-    private Level[] levels;
+    private List<Level> levels;
     //private AnimBool animBool;
 
     private void OnEnable()
@@ -19,7 +19,7 @@ public class LevelsDatabaseCustomEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        for (int i = 0; i < levels.Length; i++)
+        for (int i = 0; i < levels.Count; i++)
         {
             var level = levels[i];
 
@@ -79,6 +79,11 @@ public class LevelsDatabaseCustomEditor : Editor
             }
 
             GUILayout.Space(7);
+        }
+
+        if(GUILayout.Button("Add Level"))
+        {
+            levels.Add(new Level());
         }
     }
 }

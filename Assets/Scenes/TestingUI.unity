@@ -967,6 +967,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WonBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 4533096204426933701, guid: 3b09d6bfcef51b242b360c02b00629e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6226102081650576332, guid: 3b09d6bfcef51b242b360c02b00629e4,
         type: 3}
       propertyPath: m_Pivot.x

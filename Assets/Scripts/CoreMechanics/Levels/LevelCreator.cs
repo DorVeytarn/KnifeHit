@@ -23,23 +23,32 @@ public class LevelCreator : MonoBehaviour
     {
         knifePool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
         target = SceneComponentProvider.GetComponent(typeof(Target)) as Target;
-
-        CreateLevel();
     }
 
-    public void CreateLevel()
+    public void CreateLevel(bool isNewGame = false)
     {
+        if (isNewGame)
+            currentLevelNumber = 0;
+
         CurrentLevel = database.Levels[currentLevelNumber];
         currentLevelID = CurrentLevel.ID;
 
-        target.SetTarget(CurrentLevel.RotationCurve, CurrentLevel.Material, CurrentLevel.RewardItemsPositions, CurrentLevel.ObstaclesItemsPositions);
-
-        knifePool.CreateItems(CurrentLevel.RequiredKnifeAmount);
-        knifePool.SetFirstKnive();
+        if (CurrentLevel.IsBossLevel)
+            PopupManager.Instance.OpenPopup(PopupList.BossFight, null, () => SetLevelSettings(CurrentLevel));
+        else
+            SetLevelSettings(CurrentLevel);
 
         currentLevelNumber++;
 
-        if (currentLevelNumber >= database.Levels.Length)
-            currentLevelNumber = Random.Range(0, database.Levels.Length - 1);
+        if (currentLevelNumber >= database.Levels.Count)
+            currentLevelNumber = Random.Range(0, database.Levels.Count - 1);
+    }
+
+    private void SetLevelSettings(Level level)
+    {
+        target.SetTarget(level.RotationCurve, level.Material, level.RewardItemsPositions, level.ObstaclesItemsPositions);
+
+        knifePool.CreateItems(level.RequiredKnifeAmount);
+        knifePool.SetFirstKnive();
     }
 }

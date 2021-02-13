@@ -9,7 +9,6 @@ public class LevelsDatabaseCustomEditor : Editor
 {
     private LevelsDatabase database;
     private List<Level> levels;
-    //private AnimBool animBool;
 
     private void OnEnable()
     {

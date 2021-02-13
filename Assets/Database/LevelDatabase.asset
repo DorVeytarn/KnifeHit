@@ -41,14 +41,14 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 0
     ObstaclesItemsPositions: []
-    RandomObstacle: 1
+    RandomObstacle: 0
     RandomObstacleRange: {x: 0, y: 0}
     RandomObstacleChance: 0
     RewardItemsAmount: 0
     RewardItemsPositions: []
     RandomReward: 1
-    RandomRewardRange: {x: 0, y: 0}
-    RandomRewardChance: 0
+    RandomRewardRange: {x: 1, y: 3}
+    RandomRewardChance: 0.25
     Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
     rewardKnifeID: 
     IsBossLevel: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
     RandomRewardChance: 0
     Material: {fileID: 2100000, guid: a9627858e9f0f26418d2703d7323d5ef, type: 2}
     rewardKnifeID: 
-    IsBossLevel: 0
+    IsBossLevel: 1
   - ID: 3
     RequiredKnifeAmount: 3
     RotationCurve:
@@ -115,40 +115,13 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9488373
-        value: 49.693512
-        inSlope: 28.965485
-        outSlope: 28.965485
-        tangentMode: 136
+        time: 4.98092
+        value: 178.96968
+        inSlope: -97.32366
+        outSlope: -97.32366
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2.978547
-        value: 86.27506
-        inSlope: 39.628265
-        outSlope: 39.628265
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 4.3568854
-        value: 184.74855
-        inSlope: 44.159836
-        outSlope: 44.159836
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 7.4942064
-        value: 285.68582
-        inSlope: 31.055801
-        outSlope: 31.055801
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
+        inWeight: 0.38044828
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 10
@@ -175,3 +148,42 @@ MonoBehaviour:
     Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
     rewardKnifeID: 
     IsBossLevel: 0
+  - ID: 4
+    RequiredKnifeAmount: 5
+    RotationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 10
+        value: 360
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 0
+      m_PostInfinity: 1
+      m_RotationOrder: 4
+    ObstaclesItemsAmount: 0
+    ObstaclesItemsPositions: []
+    RandomObstacle: 0
+    RandomObstacleRange: {x: 0, y: 0}
+    RandomObstacleChance: 0
+    RewardItemsAmount: 0
+    RewardItemsPositions: []
+    RandomReward: 0
+    RandomRewardRange: {x: 0, y: 0}
+    RandomRewardChance: 0
+    Material: {fileID: 0}
+    rewardKnifeID: 
+    IsBossLevel: 1

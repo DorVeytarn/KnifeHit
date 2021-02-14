@@ -16,9 +16,12 @@ public class Knife : MonoBehaviour
 
     private Action succsesFinished;
     private Action failure;
+    private Action additionalCallback;
 
     public void SetAndLaunchKnife(Transform targetParent, float speed, float offset, Action succsesCallback = null, Action failureCallback = null)
     {
+        isFlying = false;
+
         this.speed = speed;
         this.offset = offset;
 
@@ -28,15 +31,20 @@ public class Knife : MonoBehaviour
         flyingCoroutine = StartCoroutine(Flying(targetParent));
     }
 
+    public void AddSuccsesCallback(Action callback)
+    {
+        additionalCallback = callback;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(isFlying && collision.TryGetComponent(out Knife knife) || collision.TryGetComponent(out ObstacleItem obstacle))
         {
-            //if (flyingCoroutine != null)
-            //{
-            //    StopCoroutine(flyingCoroutine);
-            //    flyingCoroutine = null;
-            //}
+            if (flyingCoroutine != null)
+            {
+                StopCoroutine(flyingCoroutine);
+                flyingCoroutine = null;
+            }
 
             KnifeClash();
         }
@@ -66,11 +74,17 @@ public class Knife : MonoBehaviour
 
     private void SuccessfulFinished()
     {
+        Vibration.Vibrate(100);
+
         succsesFinished?.Invoke();
+        additionalCallback?.Invoke();
     }
 
     private void KnifeClash()
     {
+        Vibration.Vibrate(500);
+
+        isFlying = false;
         failure?.Invoke();
     }
 }

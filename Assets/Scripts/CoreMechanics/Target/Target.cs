@@ -27,12 +27,6 @@ public class Target : MonoBehaviour
         obstaclesPool.CreateItems(defaultObstacleAmount);
     }
 
-    private void Start()
-    {
-        //rewardsPool = SceneComponentProvider.GetComponent(typeof(RewardItemsPool)) as RewardItemsPool;
-        //obstaclesPool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
-    }
-
     public void SetTarget(AnimationCurve rotationCurve, Material targetMaterial, List<Vector2> rewardItemsPositions, List<Vector2> obstaclesItemsPositions)
     {
         meshRenderer.material = targetMaterial;
@@ -42,5 +36,15 @@ public class Target : MonoBehaviour
 
         selfAnimator.SetTrigger("create");
         rotation.SetCurve(rotationCurve);
+    }
+
+    public void ClearTarget()
+    {
+        meshRenderer.material = null;
+
+        rewardsPool.ReturnItems();
+        obstaclesPool.ReturnItems();
+
+        rotation.StopRotation();
     }
 }

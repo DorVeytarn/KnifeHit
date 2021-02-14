@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils.Singletone;
@@ -7,7 +8,10 @@ public class LevelCycle : MonoBehaviour
 {
     private KnifeLauncher knifeLauncher;
     private LevelCreator levelCreator;
+    private UserDataManager dataManager;
     private bool isFailed;
+
+    public Action Failed;
 
     private void Awake()
     {
@@ -18,8 +22,9 @@ public class LevelCycle : MonoBehaviour
     {
         knifeLauncher = SceneComponentProvider.GetComponent(typeof(KnifeLauncher)) as KnifeLauncher;
         levelCreator = SceneComponentProvider.GetComponent(typeof(LevelCreator)) as LevelCreator;
+        dataManager = SceneComponentProvider.GetComponent(typeof(UserDataManager)) as UserDataManager;
 
-        if(knifeLauncher != null)
+        if (knifeLauncher != null)
         {
             knifeLauncher.KnifeClashed += LevelFailed;
             knifeLauncher.LastKnifeFinished += LevelPassed;
@@ -57,6 +62,8 @@ public class LevelCycle : MonoBehaviour
     private void LevelFailed()
     {
         isFailed = true;
-        PopupManager.Instance.OpenPopup(PopupList.Loss, null, () => { isFailed = false; });
+        PopupManager.Instance.OpenPopup(PopupList.Loss, () => levelCreator.Target.ClearTarget(), () => { isFailed = false; });
+
+        Failed?.Invoke();
     }
 }

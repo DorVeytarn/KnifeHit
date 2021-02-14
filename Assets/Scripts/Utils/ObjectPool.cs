@@ -13,7 +13,7 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     public bool CanGetItem => items != null && items.Count > 0;
     public bool IsLastItem => items.Count == 0;
 
-    private void ReturnItems()
+    public void ReturnItems()
     {
         for (int i = 0; i < usedItems.Count; i++)
         {
@@ -38,7 +38,7 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    public void CreateItems(int amount = 0)
+    public virtual void CreateItems(int amount = 0)
     {
         if (usedItems.Count > 0)
             ReturnItems();

@@ -15,7 +15,10 @@ public class LevelCreator : MonoBehaviour
     private KnifePool knifePool;
     private Target target;
 
+    public System.Action LevelCreated; 
+
     public Level CurrentLevel { get; private set; }
+    public Target Target => target;
 
     private void Awake()
     {
@@ -45,6 +48,8 @@ public class LevelCreator : MonoBehaviour
 
         if (currentLevelNumber >= database.Levels.Count)
             currentLevelNumber = Random.Range(0, database.Levels.Count - 1);
+
+        LevelCreated?.Invoke();
     }
 
     private void SetLevelSettings(Level level)

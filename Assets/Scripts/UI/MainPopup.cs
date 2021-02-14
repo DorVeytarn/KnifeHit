@@ -26,7 +26,7 @@ public class MainPopup : Popup
 
     private void OnPlayButtonClick()
     {
-        levelCreator.CreateLevel();
+        levelCreator.CreateLevel(true);
         Close();
     }
 

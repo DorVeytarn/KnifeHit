@@ -46,6 +46,7 @@ public class LevelsDatabaseCustomEditor : Editor
             level.RequiredKnifeAmount = EditorGUILayout.IntField("Required Knife Amount", level.RequiredKnifeAmount);
 
             level.RotationCurve = EditorGUILayout.CurveField("Rotation Curve", level.RotationCurve);
+            level.Sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", level.Sprite, typeof(Sprite), false);
 
             GUILayout.Space(4);
             GUILayout.Label("--------------------------Reward Items--------------------------");

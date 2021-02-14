@@ -6,11 +6,11 @@ using Utils.Singletone;
 
 public class KnifeLauncher : MonoBehaviour
 {
-    [SerializeField] private GameObject targetParent;
     [SerializeField] private float offset;
     [SerializeField] private float speed;
     [SerializeField] private float delayBetweenLaunch;
 
+    private GameObject targetParent;
     private TapInput tapInput;
     private KnifePool knifePool;
     private bool knifeBlocked;
@@ -28,6 +28,7 @@ public class KnifeLauncher : MonoBehaviour
     {
         tapInput = SceneComponentProvider.GetComponent(typeof(TapInput)) as TapInput;
         knifePool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
+        targetParent = (SceneComponentProvider.GetComponent(typeof(Target)) as Target).LaunchKnivesPoint;
 
         if (tapInput != null)
             tapInput.Taped += LaunchKnife;

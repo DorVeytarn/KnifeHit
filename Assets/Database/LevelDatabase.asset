@@ -41,17 +41,16 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 1
     ObstaclesItemsPositions:
-    - {x: 126.9752, y: 249.4757}
+    - {x: 274.35, y: 55.6135}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 1}
     RewardItemsAmount: 1
-    RewardItemsPositions:
-    - {x: -136.76355, y: 278.20087}
+    RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 3}
     RandomRewardChance: 0.25
-    Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
+    Sprite: {fileID: 21300000, guid: 6927bb9153f28194fbd985f64ae4f7fa, type: 3}
     IsBossLevel: 0
     rewardKnifeID: 
   - ID: 2
@@ -101,7 +100,7 @@ MonoBehaviour:
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
-    Material: {fileID: 2100000, guid: a9627858e9f0f26418d2703d7323d5ef, type: 2}
+    Sprite: {fileID: 21300000, guid: 63d963ef35cb16f42aaf7eae5f54f89f, type: 3}
     IsBossLevel: 1
     rewardKnifeID: 
   - ID: 3
@@ -152,7 +151,7 @@ MonoBehaviour:
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 1}
     RandomRewardChance: 0.5
-    Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
+    Sprite: {fileID: 21300000, guid: 030349ec30114a04d8209306a3421f05, type: 3}
     IsBossLevel: 0
     rewardKnifeID: 
   - ID: 4
@@ -193,7 +192,7 @@ MonoBehaviour:
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 1}
     RandomRewardChance: 0.25
-    Material: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 030349ec30114a04d8209306a3421f05, type: 3}
     IsBossLevel: 1
     rewardKnifeID: 
   - ID: 5
@@ -232,7 +231,7 @@ MonoBehaviour:
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
-    Material: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 030349ec30114a04d8209306a3421f05, type: 3}
     IsBossLevel: 1
     rewardKnifeID: 
   - ID: 6
@@ -273,7 +272,7 @@ MonoBehaviour:
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
-    Material: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 030349ec30114a04d8209306a3421f05, type: 3}
     IsBossLevel: 0
     rewardKnifeID: 
   ObstaclePresets: {fileID: 11400000, guid: 564409839299f24468b21ef67a5dba4b, type: 2}

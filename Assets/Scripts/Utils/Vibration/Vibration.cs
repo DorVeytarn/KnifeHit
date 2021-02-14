@@ -74,6 +74,9 @@ public static class Vibration
     ///</summary>
     public static void VibratePop ()
     {
+        if (SettingsManager.IsVibrationMode == false)
+            return;
+
         if ( Application.isMobilePlatform ) {
 #if UNITY_IOS
         _VibratePop ();
@@ -87,6 +90,9 @@ public static class Vibration
     ///</summary>
     public static void VibratePeek ()
     {
+        if (SettingsManager.IsVibrationMode == false)
+            return;
+
         if ( Application.isMobilePlatform ) {
 #if UNITY_IOS
         _VibratePeek ();
@@ -100,6 +106,9 @@ public static class Vibration
     ///</summary>
     public static void VibrateNope ()
     {
+        if (SettingsManager.IsVibrationMode == false)
+            return;
+
         if ( Application.isMobilePlatform ) {
 #if UNITY_IOS
         _VibrateNope ();
@@ -117,6 +126,8 @@ public static class Vibration
     ///</summary>
     public static void Vibrate ( long milliseconds )
     {
+        if (SettingsManager.IsVibrationMode == false)
+            return;
 
         if ( Application.isMobilePlatform ) {
 #if !UNITY_WEBGL
@@ -144,11 +155,13 @@ public static class Vibration
     ///</summary>
     public static void Vibrate ( long[] pattern, int repeat )
     {
+        if (SettingsManager.IsVibrationMode == false)
+            return;
+
         if ( Application.isMobilePlatform ) {
 #if UNITY_ANDROID
 
             if ( AndroidVersion >= 26 ) {
-                long[] amplitudes;
                 AndroidJavaObject createWaveform = vibrationEffect.CallStatic<AndroidJavaObject> ( "createWaveform", pattern, repeat );
                 vibrator.Call ( "vibrate", createWaveform );
 
@@ -168,6 +181,9 @@ public static class Vibration
     ///</summary>
     public static void Cancel ()
     {
+        if (SettingsManager.IsVibrationMode == false)
+            return;
+
         if ( Application.isMobilePlatform ) {
 #if UNITY_ANDROID
             vibrator.Call ( "cancel" );
@@ -203,6 +219,9 @@ public static class Vibration
 
     public static void Vibrate ()
     {
+        if (SettingsManager.IsVibrationMode == false)
+            return;
+
         if ( Application.isMobilePlatform ) {
             Handheld.Vibrate ();
         }

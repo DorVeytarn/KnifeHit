@@ -13,12 +13,10 @@ public class LevelCreator : MonoBehaviour
     [SerializeField] private string currentLevelID;
 
     private KnifePool knifePool;
-    private Target target;
-
     public System.Action LevelCreated; 
 
     public Level CurrentLevel { get; private set; }
-    public Target Target => target;
+    public Target Target { get; private set; }
 
     private void Awake()
     {
@@ -28,7 +26,7 @@ public class LevelCreator : MonoBehaviour
     private void Start()
     {
         knifePool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
-        target = SceneComponentProvider.GetComponent(typeof(Target)) as Target;
+        Target = SceneComponentProvider.GetComponent(typeof(Target)) as Target;
     }
 
     public void CreateLevel(bool isNewGame = false)
@@ -39,17 +37,21 @@ public class LevelCreator : MonoBehaviour
         CurrentLevel = database.Levels[currentLevelNumber];
         currentLevelID = CurrentLevel.ID;
 
-        if (CurrentLevel.IsBossLevel)
-            PopupManager.Instance.OpenPopup(PopupList.BossFight, null, () => SetLevelSettings(CurrentLevel));
-        else
-            SetLevelSettings(CurrentLevel);
+        Target.AnimatableDestroy(() => 
+        { 
+            if (CurrentLevel.IsBossLevel)
+                PopupManager.Instance.OpenPopup(PopupList.BossFight, null, () => SetLevelSettings(CurrentLevel));
+            else
+                SetLevelSettings(CurrentLevel);
 
-        currentLevelNumber++;
+            currentLevelNumber++;
 
-        if (currentLevelNumber >= database.Levels.Count)
-            currentLevelNumber = Random.Range(0, database.Levels.Count - 1);
+            if (currentLevelNumber >= database.Levels.Count)
+                currentLevelNumber = Random.Range(0, database.Levels.Count - 1);
 
-        LevelCreated?.Invoke();
+            LevelCreated?.Invoke();
+        });
+
     }
 
     private void SetLevelSettings(Level level)
@@ -81,7 +83,7 @@ public class LevelCreator : MonoBehaviour
                 }
         }
 
-        target.SetTarget(level.RotationCurve, level.Material, level.RewardItemsPositions, level.ObstaclesItemsPositions);
+        Target.SetTarget(level.RotationCurve, level.Sprite, level.RewardItemsPositions, level.ObstaclesItemsPositions);
 
         knifePool.CreateItems(level.RequiredKnifeAmount);
         knifePool.SetFirstKnive();

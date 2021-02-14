@@ -6,6 +6,19 @@ public static class PlayerPrefsUtility
 {
     public const string userDataKey = "USER";
 
+    public static void SaveSetting(string settingName, bool value)
+    {
+        PlayerPrefs.SetInt(settingName, value ? 1 : 0);
+    }
+
+    public static bool GetSetting(string settingName)
+    {
+        if (PlayerPrefs.HasKey(settingName))
+            return PlayerPrefs.GetInt(settingName) == 1;
+
+        return false;
+    }
+
     public static void SaveUserData(UserData user)
     {
         string jsonData = JsonUtility.ToJson(user);

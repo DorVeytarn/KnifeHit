@@ -6,12 +6,16 @@ using UnityEngine;
 public class PositionPreset
 {
     public int currentPresetsAmount;
-    public List<Vector2> preset;
+    public List<Vector2> preset = new List<Vector2>();
 
     public PositionPreset(int currentPresetsAmount)
     {
         this.currentPresetsAmount = currentPresetsAmount;
-        preset = new List<Vector2>(currentPresetsAmount);
+
+        for (int i = 0; i < currentPresetsAmount; i++)
+        {
+            preset.Add(Vector2.zero);
+        }
     }
 }
 

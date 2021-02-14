@@ -16,6 +16,7 @@ public class LevelCycle : MonoBehaviour
     private void Awake()
     {
         SceneComponentProvider.RegisterComponent(typeof(LevelCycle), this);
+        Vibration.Init();
     }
 
     private void Start()

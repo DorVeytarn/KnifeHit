@@ -74,7 +74,7 @@ public class Knife : MonoBehaviour
 
     private void SuccessfulFinished()
     {
-        Vibration.Vibrate(100);
+        Vibration.VibratePeek();
 
         succsesFinished?.Invoke();
         additionalCallback?.Invoke();
@@ -82,7 +82,7 @@ public class Knife : MonoBehaviour
 
     private void KnifeClash()
     {
-        Vibration.Vibrate(500);
+        Vibration.VibratePeek();
 
         isFlying = false;
         failure?.Invoke();

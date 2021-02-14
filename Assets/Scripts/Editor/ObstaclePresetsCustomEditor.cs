@@ -55,5 +55,7 @@ public class ObstaclePresetsCustomEditor : Editor
             for (int j = 0; j < positions[i].preset.Count; j++)
                 positions[i].preset[j] = EditorGUILayout.Vector2Field("Position", positions[i].preset[j]);
         }
+
+        EditorUtility.SetDirty(target);
     }
 }

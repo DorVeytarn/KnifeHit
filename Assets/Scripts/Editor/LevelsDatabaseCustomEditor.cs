@@ -125,5 +125,7 @@ public class LevelsDatabaseCustomEditor : Editor
         {
             levels.Add(new Level());
         }
+
+        EditorUtility.SetDirty(target);
     }
 }

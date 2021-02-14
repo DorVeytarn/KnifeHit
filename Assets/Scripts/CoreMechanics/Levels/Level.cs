@@ -8,13 +8,13 @@ public class Level
     public string ID;
 
     [Header("Settings")]
-    public int RequiredKnifeAmount;
+    public int RequiredKnifeAmount = 7;
     public AnimationCurve RotationCurve = AnimationCurve.Linear(0, 0, 10, 360);
 
     [Header("Obstacle")]
     public int ObstaclesItemsAmount;
     public List<Vector2> ObstaclesItemsPositions;
-
+    public bool DymamicObstaclesRandom;
     public bool RandomObstacle;
     public Vector2Int RandomObstacleRange;
 

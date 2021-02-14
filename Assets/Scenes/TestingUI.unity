@@ -612,7 +612,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661593137}
-  m_LocalRotation: {x: -0, y: -0, z: 0.12427957, w: 0.9922473}
+  m_LocalRotation: {x: -0, y: -0, z: 0.99937356, w: 0.03539069}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -622,7 +622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -69.039795, y: 271.2827}
+  m_AnchoredPosition: {x: 19.801464, y: 279.22876}
   m_SizeDelta: {x: 50, y: 328.83215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &661593139
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbdef2d507fab047b9c5e5bd157e84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 1.82
+  angle: 1.5
   radius: 279.93
 --- !u!1 &820738431
 GameObject:
@@ -816,7 +816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1000030255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -824,7 +824,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000030254}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9962876, w: 0.08608754}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7274525, w: 0.68615806}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -834,7 +834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67.189545, y: -271.74686}
+  m_AnchoredPosition: {x: -279.45264, y: -16.340687}
   m_SizeDelta: {x: 50, y: 328.83215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1000030256
@@ -908,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbdef2d507fab047b9c5e5bd157e84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 4.47
+  angle: 3.2
   radius: 279.93
 --- !u!1 &1002048607
 GameObject:
@@ -1703,7 +1703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2061448743
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1711,7 +1711,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061448742}
-  m_LocalRotation: {x: -0, y: -0, z: 0.99496436, w: 0.10022956}
+  m_LocalRotation: {x: -0, y: -0, z: 0.11435115, w: 0.9934404}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1721,7 +1721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55.83196, y: 274.30566}
+  m_AnchoredPosition: {x: -63.600666, y: 272.60916}
   m_SizeDelta: {x: 50, y: 328.83215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &2061448744
@@ -1795,7 +1795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbdef2d507fab047b9c5e5bd157e84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 1.37
+  angle: 1.8
   radius: 279.93
 --- !u!50 &347078583224326042
 Rigidbody2D:
@@ -2439,7 +2439,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8867740518653078023}
-  m_LocalRotation: {x: -0, y: -0, z: 0.03379871, w: 0.9994287}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9724216, w: 0.23323016}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2449,7 +2449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.911993, y: -279.2904}
+  m_AnchoredPosition: {x: 126.97515, y: 249.47568}
   m_SizeDelta: {x: 50, y: 328.83215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &7182410355116078766
@@ -2894,5 +2894,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbdef2d507fab047b9c5e5bd157e84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 4.78
+  angle: 1.1
   radius: 279.93

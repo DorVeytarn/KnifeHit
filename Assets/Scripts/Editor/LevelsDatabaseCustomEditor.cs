@@ -30,8 +30,17 @@ public class LevelsDatabaseCustomEditor : Editor
         {
             var level = levels[i];
 
-            level.ID = (i + 1).ToString();
-            GUILayout.Label("--------------------------Level " + level.ID + "--------------------------", EditorStyles.boldLabel);
+            string idLabel = (i + 1).ToString();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("--------------------------Level " + idLabel + "--------------------------", EditorStyles.boldLabel);
+            if (GUILayout.Button("X"))
+            {
+                levels.RemoveAt(i);
+                break;
+            }
+            GUILayout.EndHorizontal();
+
             level.ID = EditorGUILayout.TextField("ID", level.ID);
 
             level.RequiredKnifeAmount = EditorGUILayout.IntField("Required Knife Amount", level.RequiredKnifeAmount);

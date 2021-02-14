@@ -41,18 +41,19 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 1
     ObstaclesItemsPositions:
-    - {x: 126.9752, y: 249.4757}
+    - {x: 274.35, y: 55.6135}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 1}
-    RewardItemsAmount: 0
-    RewardItemsPositions: []
-    RandomReward: 0
+    RewardItemsAmount: 1
+    RewardItemsPositions:
+    - {x: 4.884222, y: 309.96152}
+    RandomReward: 1
     RandomRewardRange: {x: 1, y: 3}
     RandomRewardChance: 0.25
     Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
-    rewardKnifeID: 
     IsBossLevel: 0
+    rewardKnifeID: 
   - ID: 2
     RequiredKnifeAmount: 7
     RotationCurve:
@@ -90,19 +91,20 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
-    - {x: 19.80146, y: 279.2288}
-    - {x: 126.9752, y: 249.4757}
+    - {x: -270.6358, y: -71.53365}
+    - {x: 274.35, y: 55.6135}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 2, y: 2}
-    RewardItemsAmount: 0
-    RewardItemsPositions: []
+    RewardItemsAmount: 1
+    RewardItemsPositions:
+    - {x: -176.09758, y: -255.12671}
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
-    RandomRewardChance: 0.276
+    RandomRewardChance: 0.25
     Material: {fileID: 2100000, guid: a9627858e9f0f26418d2703d7323d5ef, type: 2}
-    rewardKnifeID: 
     IsBossLevel: 0
+    rewardKnifeID: 
   - ID: 3
     RequiredKnifeAmount: 3
     RotationCurve:
@@ -138,22 +140,22 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
-    ObstaclesItemsAmount: 3
+    ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
-    - {x: 274.35, y: 55.6135}
-    - {x: 151.2468, y: 235.553}
-    - {x: -63.60067, y: 272.6092}
+    - {x: 19.80146, y: 279.2288}
+    - {x: 126.9752, y: 249.4757}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 3}
-    RewardItemsAmount: 0
-    RewardItemsPositions: []
-    RandomReward: 0
-    RandomRewardRange: {x: 0, y: 0}
-    RandomRewardChance: 0
+    RewardItemsAmount: 1
+    RewardItemsPositions:
+    - {x: 211.18883, y: 226.93452}
+    RandomReward: 1
+    RandomRewardRange: {x: 1, y: 1}
+    RandomRewardChance: 0.5
     Material: {fileID: 2100000, guid: 8ff3eed6c57701c4fb6acf1ba24349b2, type: 2}
-    rewardKnifeID: 
     IsBossLevel: 0
+    rewardKnifeID: 
   - ID: 4
     RequiredKnifeAmount: 5
     RotationCurve:
@@ -182,19 +184,19 @@ MonoBehaviour:
       m_RotationOrder: 4
     ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
-    - {x: 19.80146, y: 279.2288}
-    - {x: 126.9752, y: 249.4757}
+    - {x: -270.6358, y: -71.53365}
+    - {x: 274.35, y: 55.6135}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 2, y: 2}
     RewardItemsAmount: 0
     RewardItemsPositions: []
-    RandomReward: 0
-    RandomRewardRange: {x: 0, y: 0}
-    RandomRewardChance: 0
+    RandomReward: 1
+    RandomRewardRange: {x: 1, y: 1}
+    RandomRewardChance: 0.25
     Material: {fileID: 0}
-    rewardKnifeID: 
     IsBossLevel: 1
+    rewardKnifeID: 
   - ID: 5
     RequiredKnifeAmount: 7
     RotationCurve:
@@ -221,21 +223,56 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ObstaclesItemsAmount: 4
-    ObstaclesItemsPositions:
-    - {x: 18.91199, y: -279.2904}
-    - {x: -69.03979, y: 271.2827}
-    - {x: 55.83196, y: 274.3057}
-    - {x: -67.18954, y: -271.7469}
+    ObstaclesItemsAmount: 0
+    ObstaclesItemsPositions: []
+    DymamicObstaclesRandom: 0
+    RandomObstacle: 1
+    RandomObstacleRange: {x: 0, y: 0}
+    RewardItemsAmount: 0
+    RewardItemsPositions: []
+    RandomReward: 1
+    RandomRewardRange: {x: 1, y: 2}
+    RandomRewardChance: 0.25
+    Material: {fileID: 0}
+    IsBossLevel: 1
+    rewardKnifeID: 
+  - ID: 6
+    RequiredKnifeAmount: 7
+    RotationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 36
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 10
+        value: 360
+        inSlope: 36
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ObstaclesItemsAmount: 0
+    ObstaclesItemsPositions: []
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 4}
     RewardItemsAmount: 0
     RewardItemsPositions: []
-    RandomReward: 0
-    RandomRewardRange: {x: 0, y: 0}
-    RandomRewardChance: 0
+    RandomReward: 1
+    RandomRewardRange: {x: 1, y: 2}
+    RandomRewardChance: 0.25
     Material: {fileID: 0}
-    rewardKnifeID: 
     IsBossLevel: 0
+    rewardKnifeID: 
   ObstaclePresets: {fileID: 11400000, guid: 564409839299f24468b21ef67a5dba4b, type: 2}

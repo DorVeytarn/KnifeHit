@@ -5,6 +5,9 @@ using Utils.Singletone;
 
 public class LevelCreator : MonoBehaviour
 {
+    private const float rewardSpawnRadius = 310;
+    private const float rewardPermissibleDistance = 0.6f;
+
     [SerializeField] private LevelsDatabase database;
     [SerializeField] private int currentLevelNumber = 0;
     [SerializeField] private string currentLevelID;
@@ -46,9 +49,46 @@ public class LevelCreator : MonoBehaviour
 
     private void SetLevelSettings(Level level)
     {
+        if (level.DymamicObstaclesRandom)
+        {
+            level.ObstaclesItemsPositions = database.ObstaclePresets.GetPreset(level.RandomObstacleRange.x, level.RandomObstacleRange.y);
+            level.ObstaclesItemsAmount = level.ObstaclesItemsPositions.Count;
+        }
+
+        if (level.RandomReward)
+        {
+            level.RewardItemsAmount = Random.Range(level.RandomRewardRange.x, level.RandomRewardRange.x + 1);
+            level.RewardItemsPositions.Clear();
+
+            if (Random.Range(0f, 1f) < level.RandomRewardChance)
+                for (int i = 0; i < level.RewardItemsAmount; i++)
+                {
+                    Vector2 newPosition;
+
+                    do
+                    {
+                        float angle = Random.Range(0f, Mathf.PI * 2);
+                        newPosition = new Vector2(Mathf.Cos(angle) * rewardSpawnRadius, Mathf.Sin(angle) * rewardSpawnRadius);
+                    }
+                    while (CheckRewardDistance(newPosition, level.ObstaclesItemsPositions));
+
+                    level.RewardItemsPositions.Add(newPosition);
+                }
+        }
+
         target.SetTarget(level.RotationCurve, level.Material, level.RewardItemsPositions, level.ObstaclesItemsPositions);
 
         knifePool.CreateItems(level.RequiredKnifeAmount);
         knifePool.SetFirstKnive();
+    }
+
+    private bool CheckRewardDistance(Vector2 positionToCheck, List<Vector2> otherPositions)
+    {
+        bool result = true;
+
+        for (int i = 0; i < otherPositions.Count; i++)
+            result = (positionToCheck - otherPositions[i]).magnitude >= rewardPermissibleDistance;
+
+        return !result;
     }
 }

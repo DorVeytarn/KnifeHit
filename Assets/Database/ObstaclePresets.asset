@@ -12,7 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a225715e0d685c4a9f9fd192bbafe49, type: 3}
   m_Name: ObstaclePresets
   m_EditorClassIdentifier: 
-  OneObstaclePresets: []
-  TwoObstaclePresets: []
-  ThreeObstaclePresets: []
-  FoureObstaclePresets: []
+  OneObstaclePresets:
+  - currentPresetsAmount: 1
+    preset:
+    - {x: 274.35, y: 55.6135}
+  - currentPresetsAmount: 1
+    preset:
+    - {x: 151.2468, y: 235.553}
+  - currentPresetsAmount: 1
+    preset:
+    - {x: 126.9752, y: 249.4757}
+  TwoObstaclePresets:
+  - currentPresetsAmount: 2
+    preset:
+    - {x: 274.35, y: 55.6135}
+    - {x: 151.2468, y: 235.553}
+  - currentPresetsAmount: 2
+    preset:
+    - {x: -270.6358, y: -71.53365}
+    - {x: 274.35, y: 55.6135}
+  - currentPresetsAmount: 2
+    preset:
+    - {x: 19.80146, y: 279.2288}
+    - {x: 126.9752, y: 249.4757}
+  ThreeObstaclePresets:
+  - currentPresetsAmount: 3
+    preset:
+    - {x: 151.2468, y: 235.553}
+    - {x: -3.468012, y: -279.9085}
+    - {x: -221.4156, y: -171.2774}
+  - currentPresetsAmount: 3
+    preset:
+    - {x: 274.35, y: 55.6135}
+    - {x: 151.2468, y: 235.553}
+    - {x: -63.60067, y: 272.6092}
+  FoureObstaclePresets:
+  - currentPresetsAmount: 4
+    preset:
+    - {x: 18.91199, y: -279.2904}
+    - {x: -69.03979, y: 271.2827}
+    - {x: 55.83196, y: 274.3057}
+    - {x: -67.18954, y: -271.7469}
+  - currentPresetsAmount: 4
+    preset:
+    - {x: -3.468012, y: -279.9085}
+    - {x: -8.173829, y: 279.8106}
+    - {x: 279.93, y: 0}
+    - {x: -279.4526, y: -16.34069}

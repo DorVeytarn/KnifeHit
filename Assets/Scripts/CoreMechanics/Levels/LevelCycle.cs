@@ -7,6 +7,7 @@ public class LevelCycle : MonoBehaviour
 {
     private KnifeLauncher knifeLauncher;
     private LevelCreator levelCreator;
+    private bool isFailed;
 
     private void Awake()
     {
@@ -39,6 +40,12 @@ public class LevelCycle : MonoBehaviour
         if (levelCreator == null)
             return;
 
+        if (isFailed)
+        {
+            isFailed = false;
+            return;
+        }
+
         if (levelCreator.CurrentLevel.IsBossLevel)
         {
             Debug.Log("NEW KNIFE BITCH!");
@@ -49,6 +56,7 @@ public class LevelCycle : MonoBehaviour
 
     private void LevelFailed()
     {
-        PopupManager.Instance.OpenPopup(PopupList.Loss);
+        isFailed = true;
+        PopupManager.Instance.OpenPopup(PopupList.Loss, null, () => { isFailed = false; });
     }
 }

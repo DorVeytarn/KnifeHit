@@ -12,7 +12,7 @@ public class RewardItem : MonoBehaviour
     {
         if(collision.TryGetComponent(out Knife knife))
         {
-            Debug.Log("GIVE APPLE");
+            gameObject.SetActive(false);
         }
     }
 }

@@ -9,9 +9,12 @@ public class KnifeLauncher : MonoBehaviour
     [SerializeField] private GameObject targetParent;
     [SerializeField] private float offset;
     [SerializeField] private float speed;
+    [SerializeField] private float delayBetweenLaunch;
 
     private TapInput tapInput;
     private KnifePool knifePool;
+    private bool knifeBlocked;
+    private Coroutine timerCoroutine;
 
     public Action LastKnifeFinished;
     public Action KnifeClashed;
@@ -37,7 +40,7 @@ public class KnifeLauncher : MonoBehaviour
 
     private void LaunchKnife()
     {
-        if (knifePool == null || knifePool.CanGetItem == false)
+        if (knifeBlocked || knifePool == null || knifePool.CanGetItem == false)
             return;
 
         var knife = knifePool.GetNextItem();
@@ -48,5 +51,17 @@ public class KnifeLauncher : MonoBehaviour
             lastKnifeCallback = LastKnifeFinished;
 
         knife.SetAndLaunchKnife(targetParent.transform, speed, offset, lastKnifeCallback, KnifeClashed);
+
+        knifeBlocked = true;
+
+        if(timerCoroutine == null)
+            timerCoroutine = StartCoroutine(Timer());
+    }
+
+    private IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(delayBetweenLaunch);
+        knifeBlocked = false;
+        timerCoroutine = null;
     }
 }

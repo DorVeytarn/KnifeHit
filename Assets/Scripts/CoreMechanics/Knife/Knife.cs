@@ -32,7 +32,7 @@ public class Knife : MonoBehaviour
     {
         if(isFlying && collision.TryGetComponent(out Knife knife) || collision.TryGetComponent(out ObstacleItem obstacle))
         {
-            //if(flyingCoroutine != null)
+            //if (flyingCoroutine != null)
             //{
             //    StopCoroutine(flyingCoroutine);
             //    flyingCoroutine = null;

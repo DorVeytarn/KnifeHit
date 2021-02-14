@@ -41,13 +41,13 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 1
     ObstaclesItemsPositions:
-    - {x: 274.35, y: 55.6135}
+    - {x: 126.9752, y: 249.4757}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 1}
     RewardItemsAmount: 1
     RewardItemsPositions:
-    - {x: 4.884222, y: 309.96152}
+    - {x: -136.76355, y: 278.20087}
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 3}
     RandomRewardChance: 0.25
@@ -97,13 +97,12 @@ MonoBehaviour:
     RandomObstacle: 1
     RandomObstacleRange: {x: 2, y: 2}
     RewardItemsAmount: 1
-    RewardItemsPositions:
-    - {x: -176.09758, y: -255.12671}
+    RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
     Material: {fileID: 2100000, guid: a9627858e9f0f26418d2703d7323d5ef, type: 2}
-    IsBossLevel: 0
+    IsBossLevel: 1
     rewardKnifeID: 
   - ID: 3
     RequiredKnifeAmount: 3
@@ -140,16 +139,16 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
-    ObstaclesItemsAmount: 2
+    ObstaclesItemsAmount: 3
     ObstaclesItemsPositions:
-    - {x: 19.80146, y: 279.2288}
-    - {x: 126.9752, y: 249.4757}
+    - {x: 151.2468, y: 235.553}
+    - {x: -3.468012, y: -279.9085}
+    - {x: -221.4156, y: -171.2774}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 3}
     RewardItemsAmount: 1
-    RewardItemsPositions:
-    - {x: 211.18883, y: 226.93452}
+    RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 1}
     RandomRewardChance: 0.5
@@ -184,12 +183,12 @@ MonoBehaviour:
       m_RotationOrder: 4
     ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
-    - {x: -270.6358, y: -71.53365}
-    - {x: 274.35, y: 55.6135}
+    - {x: 19.80146, y: 279.2288}
+    - {x: 126.9752, y: 249.4757}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 2, y: 2}
-    RewardItemsAmount: 0
+    RewardItemsAmount: 1
     RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 1}
@@ -221,14 +220,14 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
-      m_PostInfinity: 2
+      m_PostInfinity: 1
       m_RotationOrder: 4
     ObstaclesItemsAmount: 0
     ObstaclesItemsPositions: []
     DymamicObstaclesRandom: 0
     RandomObstacle: 1
     RandomObstacleRange: {x: 0, y: 0}
-    RewardItemsAmount: 0
+    RewardItemsAmount: 1
     RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
@@ -260,14 +259,16 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
-      m_PostInfinity: 2
+      m_PostInfinity: 1
       m_RotationOrder: 4
-    ObstaclesItemsAmount: 0
-    ObstaclesItemsPositions: []
+    ObstaclesItemsAmount: 2
+    ObstaclesItemsPositions:
+    - {x: 19.80146, y: 279.2288}
+    - {x: 126.9752, y: 249.4757}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 4}
-    RewardItemsAmount: 0
+    RewardItemsAmount: 1
     RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}

@@ -37,6 +37,13 @@ public class Popup : MonoBehaviour
         popupClosed?.Invoke();
     }
 
+    public virtual void Destroy()
+    {
+        PopupManager.Instance.RemovePopup(this);
+        popupClosed?.Invoke();
+        Destroy(gameObject);
+    }
+
     public virtual void Open()
     {
         gameObject.SetActive(true);

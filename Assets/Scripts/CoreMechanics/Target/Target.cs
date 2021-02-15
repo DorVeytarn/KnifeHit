@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnitySpriteCutter;
 using Utils.Singletone;
 
 public class Target : MonoBehaviour
@@ -17,11 +18,13 @@ public class Target : MonoBehaviour
     [SerializeField] private ObstacleItemsPool obstaclesPool;
 
     [Header("View")]
-    [SerializeField] private Image targetImage;
+    [SerializeField] private SpriteRenderer targetSpriteRenderer;
     [SerializeField] private Animator selfAnimator;
+    [SerializeField] private Sprite defaultSprite;
+    [SerializeField] private GameObject model;
 
     [Header("Settings")]
-    [SerializeField] private TargetRotation rotation;
+    [SerializeField] private TargetRotator rotation;
     [SerializeField] private GameObject launchKnivesPoint;
 
     public GameObject LaunchKnivesPoint => launchKnivesPoint;
@@ -34,19 +37,10 @@ public class Target : MonoBehaviour
         obstaclesPool.CreateItems(defaultObstacleAmount);
     }
 
-    private IEnumerator WaitTransitionEnd(Action completeCallback)
-    {
-        yield return null;
-
-        while (selfAnimator.IsInTransition(0))
-            yield return null;
-
-        completeCallback?.Invoke();
-    }
-
     public void SetTarget(AnimationCurve rotationCurve, Sprite targetSprite, List<Vector2> rewardItemsPositions, List<Vector2> obstaclesItemsPositions)
     {
-        targetImage.sprite = targetSprite;
+        if (targetSprite != defaultSprite)
+            targetSpriteRenderer.sprite = targetSprite;
 
         rewardsPool.SetItemsAtPosition(rewardItemsPositions);
         obstaclesPool.SetItemsAtPosition(obstaclesItemsPositions);
@@ -55,17 +49,54 @@ public class Target : MonoBehaviour
         rotation.SetCurve(rotationCurve);
     }
 
-    public void AnimatableDestroy(Action completeCallback)
+    public void AnimatableDestroy(Action completeCallback, float delay = 0)
     {
-        selfAnimator.SetTrigger(deathTriggerName);
-        StartCoroutine(WaitTransitionEnd(completeCallback));
+        StartCoroutine(CutsModel(delay, completeCallback));
     }
 
+    private IEnumerator CutsModel(float time, Action completeCallback)
+    {
+        Vector2 cutLine = model.transform.position;
 
+        SpriteCutterOutput outputUpDown = SpriteCutter.Cut(new SpriteCutterInput(model, cutLine, Vector2.down * 1000, CutterMode.CUT_INTO_TWO, true));
+        SpriteCutterOutput outputLeftRight = SpriteCutter.Cut(new SpriteCutterInput(model, cutLine, Vector2.right * 1000, CutterMode.CUT_INTO_TWO, true));
+
+        List<GameObject> cutsModels = new List<GameObject>
+        {
+            outputUpDown.firstSideGameObject,
+            outputUpDown.secondSideGameObject,
+            outputLeftRight.firstSideGameObject,
+            outputLeftRight.secondSideGameObject,
+        };
+
+        SetCutsModel(cutsModels);
+
+        yield return new WaitForSeconds(time);
+        completeCallback?.Invoke();
+
+        completeCallback = null;
+    }
+
+    private void SetCutsModel(List<GameObject> cutModels)
+    {
+        for (int i = 0; i < cutModels.Count; i++)
+        {
+            var newCut = cutModels[i];
+            newCut.transform.SetParent(transform, false);
+
+            var cutRigidbody = newCut.AddComponent<Rigidbody2D>();
+            cutRigidbody.gravityScale = 0.1f;
+            cutRigidbody.angularVelocity = 10f;
+            cutRigidbody.AddForce(new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), -10), ForceMode2D.Impulse);
+
+            CoroutineRunner.Instance.DelayedCall(() => Destroy(newCut), 1f, true);
+        }
+
+    }
 
     public void ClearTarget()
     {
-        targetImage.sprite = null;
+        targetSpriteRenderer.sprite = defaultSprite;
 
         rewardsPool.ReturnItems();
         obstaclesPool.ReturnItems();

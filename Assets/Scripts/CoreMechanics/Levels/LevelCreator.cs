@@ -6,14 +6,15 @@ using Utils.Singletone;
 public class LevelCreator : MonoBehaviour
 {
     private const float rewardSpawnRadius = 310;
-    private const float rewardPermissibleDistance = 0.6f;
+    private const float rewardPermissibleDistance = 1f;
 
+    [SerializeField] private float delayBeforeCreating;
     [SerializeField] private LevelsDatabase database;
     [SerializeField] private int currentLevelNumber = 0;
     [SerializeField] private string currentLevelID;
 
     private KnifePool knifePool;
-    public System.Action LevelCreated; 
+    public System.Action LevelCreated;
 
     public Level CurrentLevel { get; private set; }
     public Target Target { get; private set; }
@@ -29,6 +30,11 @@ public class LevelCreator : MonoBehaviour
         Target = SceneComponentProvider.GetComponent(typeof(Target)) as Target;
     }
 
+    public void DestroyLevel(System.Action destroyedCallback)
+    {
+        Target.AnimatableDestroy(destroyedCallback, delayBeforeCreating);
+    }
+
     public void CreateLevel(bool isNewGame = false)
     {
         if (isNewGame)
@@ -37,20 +43,18 @@ public class LevelCreator : MonoBehaviour
         CurrentLevel = database.Levels[currentLevelNumber];
         currentLevelID = CurrentLevel.ID;
 
-        Target.AnimatableDestroy(() => 
-        { 
-            if (CurrentLevel.IsBossLevel)
-                PopupManager.Instance.OpenPopup(PopupList.BossFight, null, () => SetLevelSettings(CurrentLevel));
-            else
-                SetLevelSettings(CurrentLevel);
 
-            currentLevelNumber++;
+        if (CurrentLevel.IsBossLevel)
+            PopupManager.Instance.OpenPopup(PopupList.BossFight, null, () => SetLevelSettings(CurrentLevel));
+        else
+            SetLevelSettings(CurrentLevel);
 
-            if (currentLevelNumber >= database.Levels.Count)
-                currentLevelNumber = Random.Range(0, database.Levels.Count - 1);
+        currentLevelNumber++;
 
-            LevelCreated?.Invoke();
-        });
+        if (currentLevelNumber >= database.Levels.Count)
+            currentLevelNumber = Random.Range(0, database.Levels.Count - 1);
+
+        LevelCreated?.Invoke();
 
     }
 

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetRotation : MonoBehaviour
+public class TargetRotator : MonoBehaviour
 {
+    [SerializeField] private GameObject rotatableObject;
     [SerializeField] private AnimationCurve rotationCurve;
     [SerializeField] private WrapMode curveMode;
 
@@ -32,7 +33,7 @@ public class TargetRotation : MonoBehaviour
     {
         while (true)
         {
-            transform.rotation = Quaternion.AngleAxis(rotationCurve.Evaluate(currentTime), Vector3.forward);
+            rotatableObject.transform.rotation = Quaternion.AngleAxis(rotationCurve.Evaluate(currentTime), Vector3.forward);
             currentTime += Time.deltaTime;
 
             yield return null;

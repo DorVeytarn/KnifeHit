@@ -56,7 +56,7 @@ public class LevelCycle : MonoBehaviour
             Debug.Log("NEW KNIFE BITCH!");
         }
 
-        levelCreator.CreateLevel();
+        levelCreator.DestroyLevel(() => levelCreator.CreateLevel());
     }
 
     private void LevelFailed()

@@ -10,6 +10,11 @@ public class BossFightPopup : Popup
         StartCoroutine(AnimatableDelay());
     }
 
+    public override void Close()
+    {
+        Destroy();
+    }
+
     private IEnumerator AnimatableDelay()
     {
         yield return new WaitForSeconds(1f);

@@ -23,7 +23,13 @@ public class PopupManager : Singleton<PopupManager>
 
     public void RegistratePopup(Popup popup)
     {
-        popupStack.Add(popup);
+        if(!popupStack.Contains(popup))
+            popupStack.Add(popup);
+    }
+
+    public void RemovePopup(Popup popup)
+    {
+        popupStack.Remove(popup);
     }
 
     public void ClosePopup(Popup closingPopup)
@@ -69,7 +75,7 @@ public class PopupManager : Singleton<PopupManager>
         var popupObject = Instantiate(popupsList.Find(popup => popup.name == popupName), popupParent);
         var newPopup = popupObject.GetComponent<Popup>();
 
-        popupStack.Add(newPopup);
+        RegistratePopup(newPopup);
 
         newPopup.InitPopup(popupOpenedCallback, popupClosedCallback, true);
     }

@@ -10,6 +10,8 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     protected List<T> items = new List<T>();
     protected List<T> usedItems = new List<T>();
 
+    public int ItemMaxCount { get; private set; }
+    public int ItemCount => items.Count;
     public bool CanGetItem => items != null && items.Count > 0;
     public bool IsLastItem => items.Count == 0;
 
@@ -56,6 +58,8 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
 
             items.Add(newItem.GetComponent<T>());
         }
+
+        ItemMaxCount = items.Count;
     }
 
     public T GetNextItem(bool activateNext = true)

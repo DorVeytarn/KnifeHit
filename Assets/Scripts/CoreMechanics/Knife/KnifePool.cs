@@ -24,7 +24,7 @@ public class KnifePool : ObjectPool<Knife>
 
         for (int i = 0; i < items.Count; i++)
         {
-            items[i].AddSuccsesCallback(() => dataManager.UpdateUserData(UDType.Score, 1));
+            items[i].AddSuccessCallback(() => dataManager.UpdateUserData(UDType.Score, 1));
         }
     }
 

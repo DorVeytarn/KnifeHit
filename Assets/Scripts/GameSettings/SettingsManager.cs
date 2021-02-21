@@ -9,7 +9,7 @@ public class SettingsManager : MonoBehaviour
     public const string soundSetting = "Sounds";
     public const string vibrationSetting = "Vibrations";
 
-    public static bool IsMute { get; private set; }
+    public static bool IsSoundMode { get; private set; }
     public static bool IsVibrationMode { get; private set; }
 
     private void Awake()
@@ -20,9 +20,26 @@ public class SettingsManager : MonoBehaviour
         UpdateSettingsValues();
     }
 
+    public bool GetSettingState(string settingName)
+    {
+        UpdateSettingsValues();
+
+        switch (settingName)
+        {
+            case soundSetting:
+                return IsSoundMode;
+
+            case vibrationSetting:
+                return IsVibrationMode;
+
+            default:
+                return false;
+        }
+    }
+
     public void UpdateSettingsValues()
     {
-        IsMute = PlayerPrefsUtility.GetSetting(soundSetting);
-        IsMute = PlayerPrefsUtility.GetSetting(vibrationSetting);
+        IsSoundMode = PlayerPrefsUtility.GetSetting(soundSetting);
+        IsVibrationMode = PlayerPrefsUtility.GetSetting(vibrationSetting);
     }
 }

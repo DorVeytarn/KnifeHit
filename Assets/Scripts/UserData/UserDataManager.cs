@@ -13,6 +13,10 @@ public enum UDType
 
 public class UserDataManager : MonoBehaviour
 {
+    private const string defaultKnife = "Default";
+
+    [SerializeField] private KnivesDatabase knivesDatabase;
+
     private List<string> currentKnives;
     private LevelCycle levelCycle;
     private LevelCreator levelCreator;
@@ -26,6 +30,7 @@ public class UserDataManager : MonoBehaviour
     public int CurrentRewardAmount { get; private set; }
     public int CurrentScore { get; private set; }
     public int HightScore { get; private set; }
+    public KnifeData CurrentKnife { get; private set; }
 
     private void Awake()
     {
@@ -36,8 +41,12 @@ public class UserDataManager : MonoBehaviour
         CurrentRewardAmount = CurrentUserData.RewardAmount;
         HightScore = CurrentUserData.HightScore;
         currentKnives = CurrentUserData.OpenedKnives;
+        CurrentKnife = CurrentUserData.CurrentKnife;
 
         CurrentScore = 0;
+
+        if (PlayerPrefsUtility.IsFirstOpen())
+            UpdateUserData(UDType.Knife, knivesDatabase.GetKnifeDataByName(defaultKnife));
     }
 
     private void Start()
@@ -75,6 +84,7 @@ public class UserDataManager : MonoBehaviour
             case UDType.Knife:
                     currentKnives.Add((arg as KnifeData).Name);
                 KnivesChanged?.Invoke(arg as KnifeData);
+                CurrentKnife = (arg as KnifeData);
                 break;
         }
     }
@@ -84,7 +94,7 @@ public class UserDataManager : MonoBehaviour
         CurrentScore = 0;
         ScoreChanged?.Invoke(CurrentScore);
 
-        PlayerPrefsUtility.SaveUserDataField(CurrentRewardAmount, HightScore, currentKnives);
+        PlayerPrefsUtility.SaveUserDataField(CurrentRewardAmount, HightScore, currentKnives, CurrentKnife);
     }
 
     public bool ChekKnifeAvailability(string knifeName)

@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9714d2ece9554e54cb7e8c93de454d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotatableObject: {fileID: 0}
   rotationCurve:
     serializedVersion: 2
     m_Curve:
@@ -266,9 +267,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardsPool: {fileID: 1986401377}
   obstaclesPool: {fileID: 1122523113}
-  meshRenderer: {fileID: 820738434}
+  targetSpriteRenderer: {fileID: 0}
   selfAnimator: {fileID: 93831263}
+  defaultSprite: {fileID: 0}
+  model: {fileID: 0}
   rotation: {fileID: 93831264}
+  launchKnivesPoint: {fileID: 0}
 --- !u!1 &175366158
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,9 +321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbcddf6d495235499f40937a989e9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1013931786}
   objectToSpawn: {fileID: 5530826727688580119, guid: 3c5882f0bcf8aaa40a2ed7bfe023cd10,
     type: 3}
-  spawnPoint: {fileID: 1013931786}
 --- !u!1 &307359589
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defa1235bc19199499b74be15c935f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBeforeCreating: 0
   database: {fileID: 11400000, guid: d0a381fbfc54be94788e71f12cbdc91a, type: 2}
   currentLevelNumber: 0
   currentLevelID: 
@@ -1201,9 +1206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf6338b60f76a64083940f26361839c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1122523112}
   objectToSpawn: {fileID: 5530826727688580119, guid: 00c6b16362e95dc468c0c5f261ff29de,
     type: 3}
-  spawnPoint: {fileID: 1122523112}
 --- !u!224 &1307130990 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8421298293094617778, guid: 5852064b3c078f24a8fd0c089908cf0a,
@@ -1634,9 +1639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7bd1dcba268514ebd61d0f9237995b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetParent: {fileID: 93831261}
   offset: 1.5
   speed: 25
+  delayBetweenLaunch: 0
 --- !u!1 &1986401375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,9 +1691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7edcb36c23435478dfd44806128f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1986401376}
   objectToSpawn: {fileID: 8041773548363087273, guid: 4351b00d8c7f0bd419768ba3e5409cf8,
     type: 3}
-  spawnPoint: {fileID: 1986401376}
 --- !u!1 &2061448742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +1967,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365686160435206680}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9871638, w: 0.1597112}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9871638, w: 0.15971132}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2295,17 +2300,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4744775703912835095}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.37921846, w: 0.9253072}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: -0.81, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5156312012848688608}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.571003}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 328.83215}
+  m_AnchoredPosition: {x: 1, y: -7}
+  m_SizeDelta: {x: 229.28027, y: 216.13074}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3616443133705302128 stripped
 RectTransform:
@@ -2662,17 +2667,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8867740518653078023}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9724216, w: 0.23323016}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7176334, w: 0.696421}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2998759353388197876}
   m_Father: {fileID: 1122523112}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.9}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 126.97515, y: 249.47568}
+  m_AnchoredPosition: {x: 420.45, y: 0}
   m_SizeDelta: {x: 50, y: 328.83215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &7182410355116078766
@@ -2838,13 +2843,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 774392f95e29b87498af0f8d6423cb7a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3117,7 +3122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbdef2d507fab047b9c5e5bd157e84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 1.1
-  radius: 279.93
+  angle: 0
+  radius: 420.45
   otherTransform: {fileID: 0}
   distance: 0

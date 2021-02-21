@@ -12,6 +12,7 @@ public class Target : MonoBehaviour
     public const int defaultObstacleAmount = 10;
     public const string createTriggerName = "create";
     public const string deathTriggerName = "death";
+    public const string bumpTriggerName = "bump";
 
     [Header("Items")]
     [SerializeField] private RewardItemsPool rewardsPool;
@@ -39,6 +40,8 @@ public class Target : MonoBehaviour
 
     public void SetTarget(AnimationCurve rotationCurve, Sprite targetSprite, List<Vector2> rewardItemsPositions, List<Vector2> obstaclesItemsPositions)
     {
+        model.SetActive(true);
+
         if (targetSprite != defaultSprite)
             targetSpriteRenderer.sprite = targetSprite;
 
@@ -59,14 +62,22 @@ public class Target : MonoBehaviour
         Vector2 cutLine = model.transform.position;
 
         SpriteCutterOutput outputUpDown = SpriteCutter.Cut(new SpriteCutterInput(model, cutLine, Vector2.down * 1000, CutterMode.CUT_INTO_TWO, true));
-        SpriteCutterOutput outputLeftRight = SpriteCutter.Cut(new SpriteCutterInput(model, cutLine, Vector2.right * 1000, CutterMode.CUT_INTO_TWO, true));
+
+        SpriteCutterOutput outputLeft = SpriteCutter.Cut(new SpriteCutterInput(outputUpDown.firstSideGameObject, cutLine, Vector2.right * 1000, CutterMode.CUT_INTO_TWO, true));
+        SpriteCutterOutput outputRight = SpriteCutter.Cut(new SpriteCutterInput(outputUpDown.secondSideGameObject, cutLine, Vector2.right * 1000, CutterMode.CUT_INTO_TWO, true));
+
+        model.SetActive(false);
+        outputUpDown.firstSideGameObject.SetActive(false);
+        outputUpDown.secondSideGameObject.SetActive(false);
 
         List<GameObject> cutsModels = new List<GameObject>
         {
             outputUpDown.firstSideGameObject,
             outputUpDown.secondSideGameObject,
-            outputLeftRight.firstSideGameObject,
-            outputLeftRight.secondSideGameObject,
+            outputLeft.firstSideGameObject,
+            outputLeft.secondSideGameObject,
+            outputRight.firstSideGameObject,
+            outputRight.secondSideGameObject
         };
 
         SetCutsModel(cutsModels);
@@ -92,6 +103,11 @@ public class Target : MonoBehaviour
             CoroutineRunner.Instance.DelayedCall(() => Destroy(newCut), 1f, true);
         }
 
+    }
+
+    public void BumpTarget()
+    {
+        selfAnimator.SetTrigger(bumpTriggerName);
     }
 
     public void ClearTarget()

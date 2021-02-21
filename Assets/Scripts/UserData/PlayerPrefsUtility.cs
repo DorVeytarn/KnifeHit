@@ -5,6 +5,7 @@ using UnityEngine;
 public static class PlayerPrefsUtility
 {
     public const string userDataKey = "USER";
+    public const string isFirstOpen = "first_open";
 
     public static void SaveSetting(string settingName, bool value)
     {
@@ -16,7 +17,7 @@ public static class PlayerPrefsUtility
         if (PlayerPrefs.HasKey(settingName))
             return PlayerPrefs.GetInt(settingName) == 1;
 
-        return false;
+        return true;
     }
 
     public static void SaveUserData(UserData user)
@@ -64,7 +65,7 @@ public static class PlayerPrefsUtility
         PlayerPrefs.Save();
     }
 
-    public static void SaveUserDataField(int rewardAmount, int hightScore, List<string> openedKnives)
+    public static void SaveUserDataField(int rewardAmount, int hightScore, List<string> openedKnives, KnifeData currentKnife)
     {
         UserData newUserData;
 
@@ -78,13 +79,24 @@ public static class PlayerPrefsUtility
 
         newUserData.RewardAmount = rewardAmount;
         newUserData.HightScore = hightScore;
-
         newUserData.OpenedKnives = openedKnives;
+        newUserData.CurrentKnife = currentKnife;
 
         string userToJson = JsonUtility.ToJson(newUserData);
 
         PlayerPrefs.SetString(userDataKey, userToJson);
         PlayerPrefs.Save();
+    }
+
+    public static bool IsFirstOpen()
+    {
+        if (!PlayerPrefs.HasKey(isFirstOpen))
+        {
+            PlayerPrefs.SetInt(isFirstOpen, 1);
+            return true;
+        }
+        else 
+            return false;
     }
 
 #if UNITY_EDITOR

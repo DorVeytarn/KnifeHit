@@ -8,4 +8,5 @@ public class UserData
     public int RewardAmount;
     public int HightScore;
     public List<string> OpenedKnives;
+    public KnifeData CurrentKnife;
 }

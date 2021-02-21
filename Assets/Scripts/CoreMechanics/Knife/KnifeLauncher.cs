@@ -6,7 +6,6 @@ using Utils.Singletone;
 
 public class KnifeLauncher : MonoBehaviour
 {
-    [SerializeField] private GameObject targetParent;
     [SerializeField] private float offset;
     [SerializeField] private float speed;
     [SerializeField] private float delayBetweenLaunch;
@@ -16,9 +15,11 @@ public class KnifeLauncher : MonoBehaviour
     private LevelCreator levelCreator;
     private bool knifeBlocked;
     private Coroutine timerCoroutine;
+    private Target target;
 
     public Action LastKnifeFinished;
     public Action KnifeClashed;
+    public Action KnifeLaunched;
 
     private void Awake()
     {
@@ -31,8 +32,8 @@ public class KnifeLauncher : MonoBehaviour
         knifePool = SceneComponentProvider.GetComponent(typeof(KnifePool)) as KnifePool;
         levelCreator = SceneComponentProvider.GetComponent(typeof(LevelCreator)) as LevelCreator;
         
-        if(targetParent == null)
-            targetParent = (SceneComponentProvider.GetComponent(typeof(Target)) as Target).LaunchKnivesPoint;
+        if(target == null)
+            target = (SceneComponentProvider.GetComponent(typeof(Target)) as Target);
 
         if (tapInput != null)
             tapInput.Taped += LaunchKnife;
@@ -51,21 +52,22 @@ public class KnifeLauncher : MonoBehaviour
         bool lastKnife = (knifePool.ItemCount - 1 == knifePool.ItemMaxCount - levelCreator.CurrentLevel.RequiredKnifeAmount);
 
         var knife = knifePool.GetNextItem(!lastKnife);
-
         if (knife == null)
             return;
 
-        Action lastKnifeCallback = null;
-
+        Action successCallback = null;
         if (lastKnife)
-            lastKnifeCallback = LastKnifeFinished;
+            successCallback = LastKnifeFinished;
+        else
+            successCallback = () => { target.BumpTarget(); };
 
-        knife.SetAndLaunchKnife(targetParent.transform, speed, offset, lastKnifeCallback, KnifeClashed);
-
+        knife.SetAndLaunchKnife(target.LaunchKnivesPoint.transform, speed, offset, successCallback, KnifeClashed);
         knifeBlocked = true;
 
         if(timerCoroutine == null)
             timerCoroutine = StartCoroutine(Timer());
+
+        KnifeLaunched?.Invoke();
     }
 
     private IEnumerator Timer()

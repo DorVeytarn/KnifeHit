@@ -18,6 +18,9 @@ public class Setting : MonoBehaviour
     {
         settingsManager = SceneComponentProvider.GetComponent(typeof(SettingsManager)) as SettingsManager;
         selfToggle.onValueChanged.AddListener(OnToggleValueChanged);
+
+        selfToggle.isOn = settingsManager.GetSettingState(settingName);
+        OnToggleValueChanged(selfToggle.isOn);
     }
 
     private void OnDestroy()

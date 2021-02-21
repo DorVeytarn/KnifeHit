@@ -12,6 +12,9 @@ public class KnifePool : ObjectPool<Knife>
     private void Start()
     {
         dataManager = SceneComponentProvider.GetComponent(typeof(UserDataManager)) as UserDataManager;
+
+        if(dataManager.CurrentKnife.Model != null)
+            SetNewSpawnObject(dataManager.CurrentKnife.Model);
     }
 
     public override void CreateItems(int amount = 0)

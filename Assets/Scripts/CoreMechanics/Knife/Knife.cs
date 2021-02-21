@@ -8,6 +8,7 @@ using UnityEngine;
 public class Knife : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D selfBoxCollider;
+    [SerializeField] private GameObject effect;
 
     private Coroutine flyingCoroutine;
     private float speed;
@@ -20,6 +21,8 @@ public class Knife : MonoBehaviour
 
     public void SetAndLaunchKnife(Transform targetParent, float speed, float offset, Action succsesCallback = null, Action failureCallback = null)
     {
+        effect.SetActive(false);
+
         isFlying = false;
 
         this.speed = speed;
@@ -75,6 +78,8 @@ public class Knife : MonoBehaviour
     private void SuccessfulFinished()
     {
         Vibration.VibratePop();
+
+        effect.SetActive(true);
 
         successFinished?.Invoke();
         additionalSuccessCallback?.Invoke();

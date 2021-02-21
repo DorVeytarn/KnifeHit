@@ -19,6 +19,7 @@ public class Target : MonoBehaviour
     [SerializeField] private ObstacleItemsPool obstaclesPool;
 
     [Header("View")]
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private SpriteRenderer targetSpriteRenderer;
     [SerializeField] private Animator selfAnimator;
     [SerializeField] private Sprite defaultSprite;
@@ -27,6 +28,11 @@ public class Target : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private TargetRotator rotation;
     [SerializeField] private GameObject launchKnivesPoint;
+    [SerializeField] private List<GameObject> dependentObjects = new List<GameObject>();
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip bumpClip;
+    [SerializeField] private AudioClip crashClip;
 
     public GameObject LaunchKnivesPoint => launchKnivesPoint;
 
@@ -40,7 +46,7 @@ public class Target : MonoBehaviour
 
     public void SetTarget(AnimationCurve rotationCurve, Sprite targetSprite, List<Vector2> rewardItemsPositions, List<Vector2> obstaclesItemsPositions)
     {
-        model.SetActive(true);
+        SetDependentObjectsActive(true);
 
         if (targetSprite != defaultSprite)
             targetSpriteRenderer.sprite = targetSprite;
@@ -66,7 +72,8 @@ public class Target : MonoBehaviour
         SpriteCutterOutput outputLeft = SpriteCutter.Cut(new SpriteCutterInput(outputUpDown.firstSideGameObject, cutLine, Vector2.right * 1000, CutterMode.CUT_INTO_TWO, true));
         SpriteCutterOutput outputRight = SpriteCutter.Cut(new SpriteCutterInput(outputUpDown.secondSideGameObject, cutLine, Vector2.right * 1000, CutterMode.CUT_INTO_TWO, true));
 
-        model.SetActive(false);
+        SetDependentObjectsActive(false);
+
         outputUpDown.firstSideGameObject.SetActive(false);
         outputUpDown.secondSideGameObject.SetActive(false);
 
@@ -90,6 +97,9 @@ public class Target : MonoBehaviour
 
     private void SetCutsModel(List<GameObject> cutModels)
     {
+        if (SettingsManager.IsSoundMode)
+            audioSource.PlayOneShot(crashClip);
+
         for (int i = 0; i < cutModels.Count; i++)
         {
             var newCut = cutModels[i];
@@ -108,6 +118,9 @@ public class Target : MonoBehaviour
     public void BumpTarget()
     {
         selfAnimator.SetTrigger(bumpTriggerName);
+
+        if(SettingsManager.IsSoundMode)
+            audioSource.PlayOneShot(bumpClip);
     }
 
     public void ClearTarget()
@@ -119,4 +132,13 @@ public class Target : MonoBehaviour
 
         rotation.StopRotation();
     }
+
+    private void SetDependentObjectsActive(bool active)
+    {
+        for (int i = 0; i < dependentObjects.Count; i++)
+        {
+            dependentObjects[i].SetActive(active);
+        }
+    }
+
 }

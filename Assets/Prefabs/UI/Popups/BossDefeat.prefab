@@ -119,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6226102081650576332}
   - component: {fileID: 8245492813807681141}
+  - component: {fileID: 2745119767017948604}
   m_Layer: 5
   m_Name: BossDefeat
   m_TagString: Untagged
@@ -164,6 +165,25 @@ MonoBehaviour:
   popupName: BossDefeat
   selfButton: {fileID: 0}
   knifeModel: {fileID: 3733762800187924076}
+--- !u!95 &2745119767017948604
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533096204426933701}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50786f56fd517284db7d18171b95fbb3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4909657164381193556
 GameObject:
   m_ObjectHideFlags: 0

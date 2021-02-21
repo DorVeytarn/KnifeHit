@@ -45,7 +45,8 @@ MonoBehaviour:
     RandomObstacle: 1
     RandomObstacleRange: {x: 0, y: 0}
     RewardItemsAmount: 1
-    RewardItemsPositions: []
+    RewardItemsPositions:
+    - {x: 306.03528, y: 49.420704}
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 3}
     RandomRewardChance: 0.25
@@ -97,8 +98,7 @@ MonoBehaviour:
     RandomObstacle: 1
     RandomObstacleRange: {x: 2, y: 2}
     RewardItemsAmount: 1
-    RewardItemsPositions:
-    - {x: -267.53806, y: -156.59946}
+    RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
@@ -108,7 +108,7 @@ MonoBehaviour:
     IsBossLevel: 0
     RewardKnifeName: Blue
   - ID: 3
-    RequiredKnifeAmount: 3
+    RequiredKnifeAmount: 6
     RotationCurve:
       serializedVersion: 2
       m_Curve:
@@ -142,15 +142,17 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
-    ObstaclesItemsAmount: 2
+    ObstaclesItemsAmount: 3
     ObstaclesItemsPositions:
-    - {x: -270.6358, y: -71.53365}
     - {x: 274.35, y: 55.6135}
+    - {x: 151.2468, y: 235.553}
+    - {x: -63.60067, y: 272.6092}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 3}
     RewardItemsAmount: 1
-    RewardItemsPositions: []
+    RewardItemsPositions:
+    - {x: 281.77222, y: -129.24557}
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 1}
     RandomRewardChance: 0.5
@@ -271,9 +273,11 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 1
       m_RotationOrder: 4
-    ObstaclesItemsAmount: 1
+    ObstaclesItemsAmount: 3
     ObstaclesItemsPositions:
+    - {x: 274.35, y: 55.6135}
     - {x: 151.2468, y: 235.553}
+    - {x: -63.60067, y: 272.6092}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 4}

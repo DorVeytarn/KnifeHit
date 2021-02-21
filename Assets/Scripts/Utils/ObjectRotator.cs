@@ -13,8 +13,9 @@ public class ObjectRotator : MonoBehaviour
 
     private void Update()
     {
-        Vector3 supportingVector = (transform.position.x > 0) ? Vector3.up : Vector3.down;
-        transform.rotation = Quaternion.Euler(0, 0, Vector3.Angle(transform.parent.position - transform.position, supportingVector));
+        float angleZ = (transform.position.x > 0) ? Vector3.Angle(transform.parent.position - transform.position, Vector3.up)
+                                                : -Vector3.Angle(transform.parent.position - transform.position, Vector3.up);
+        transform.rotation = Quaternion.Euler(0, 0, angleZ);
 
         transform.localPosition = new Vector3(Mathf.Cos(angle) * radius,Mathf.Sin(angle) * radius, 0);
     }

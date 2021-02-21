@@ -98,8 +98,10 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
             var item = GetNextItem(false);
             item.gameObject.transform.localPosition = positions[i];
 
-            Vector3 supportingVector = (positions[i].x > 0) ? Vector3.up : Vector3.down;
-            item.gameObject.transform.localRotation = Quaternion.Euler(0, 0, Vector3.Angle(supportingVector, spawnPoint.localPosition - item.gameObject.transform.localPosition));
+            float angle = (positions[i].x > 0) ? Vector3.Angle(Vector3.up, spawnPoint.localPosition - item.gameObject.transform.localPosition)
+                                               : -Vector3.Angle(Vector3.up, spawnPoint.localPosition - item.gameObject.transform.localPosition);
+
+            item.gameObject.transform.localRotation = Quaternion.Euler(0, 0, angle);
         }
     }
 

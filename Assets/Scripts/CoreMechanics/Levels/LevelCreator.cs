@@ -87,7 +87,7 @@ public class LevelCreator : MonoBehaviour
                 }
         }
 
-        Target.SetTarget(level.RotationCurve, level.Sprite, level.RewardItemsPositions, level.ObstaclesItemsPositions);
+        Target.SetTarget(level.RotationCurve, level.Sprite, level.RewardItemsPositions, level.ObstaclesItemsPositions, level.BumpClip, level.CrashClip);
 
         knifePool.CreateItems(level.RequiredKnifeAmount);
         knifePool.SetFirstKnive();

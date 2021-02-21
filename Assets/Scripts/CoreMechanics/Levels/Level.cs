@@ -28,6 +28,8 @@ public class Level
 
     [Header("View")]
     public Sprite Sprite;
+    public AudioClip BumpClip;
+    public AudioClip CrashClip;
 
     [Header("If Is Boss")]
     public bool IsBossLevel;

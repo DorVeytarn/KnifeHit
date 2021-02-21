@@ -47,6 +47,8 @@ public class LevelsDatabaseCustomEditor : Editor
 
             level.RotationCurve = EditorGUILayout.CurveField("Rotation Curve", level.RotationCurve);
             level.Sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", level.Sprite, typeof(Sprite), false);
+            level.BumpClip = (AudioClip)EditorGUILayout.ObjectField("Bump Clip", level.BumpClip, typeof(AudioClip), false);
+            level.CrashClip = (AudioClip)EditorGUILayout.ObjectField("Crash Clip", level.CrashClip, typeof(AudioClip), false);
 
             GUILayout.Space(4);
             GUILayout.Label("--------------------------Reward Items--------------------------");

@@ -39,18 +39,20 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
-    ObstaclesItemsAmount: 1
-    ObstaclesItemsPositions:
-    - {x: 126.9752, y: 249.4757}
+    ObstaclesItemsAmount: 0
+    ObstaclesItemsPositions: []
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 0, y: 0}
     RewardItemsAmount: 1
-    RewardItemsPositions: []
+    RewardItemsPositions:
+    - {x: -10.24232, y: -309.83075}
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 3}
     RandomRewardChance: 0.25
     Sprite: {fileID: 21300000, guid: b6623cfbb847db1498e93bc5264d21ba, type: 3}
+    BumpClip: {fileID: 8300000, guid: dd974f52efe5a5545acbe57fe2d3aede, type: 3}
+    CrashClip: {fileID: 8300000, guid: bef3fed1f77ffbb428531a5f33165046, type: 3}
     IsBossLevel: 0
     RewardKnifeName: 
   - ID: 2
@@ -90,17 +92,20 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
-    - {x: -270.6358, y: -71.53365}
     - {x: 274.35, y: 55.6135}
+    - {x: 151.2468, y: 235.553}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 2, y: 2}
     RewardItemsAmount: 1
-    RewardItemsPositions: []
+    RewardItemsPositions:
+    - {x: 264.578, y: 161.55025}
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
     Sprite: {fileID: 21300000, guid: b6623cfbb847db1498e93bc5264d21ba, type: 3}
+    BumpClip: {fileID: 8300000, guid: dd974f52efe5a5545acbe57fe2d3aede, type: 3}
+    CrashClip: {fileID: 8300000, guid: bef3fed1f77ffbb428531a5f33165046, type: 3}
     IsBossLevel: 0
     RewardKnifeName: Blue
   - ID: 3
@@ -140,18 +145,19 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
-    - {x: -270.6358, y: -71.53365}
-    - {x: 274.35, y: 55.6135}
+    - {x: 19.80146, y: 279.2288}
+    - {x: 126.9752, y: 249.4757}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 3}
     RewardItemsAmount: 1
-    RewardItemsPositions:
-    - {x: 278.33, y: -136.50061}
+    RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 1}
     RandomRewardChance: 0.5
     Sprite: {fileID: 21300000, guid: 457027a8769c1cb4a838a8fb51ca14fc, type: 3}
+    BumpClip: {fileID: 8300000, guid: dd974f52efe5a5545acbe57fe2d3aede, type: 3}
+    CrashClip: {fileID: 8300000, guid: bef3fed1f77ffbb428531a5f33165046, type: 3}
     IsBossLevel: 0
     RewardKnifeName: 
   - ID: 4
@@ -180,10 +186,12 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 4
-    ObstaclesItemsAmount: 2
+    ObstaclesItemsAmount: 4
     ObstaclesItemsPositions:
-    - {x: 274.35, y: 55.6135}
-    - {x: 151.2468, y: 235.553}
+    - {x: -3.468012, y: -279.9085}
+    - {x: -8.173829, y: 279.8106}
+    - {x: 279.93, y: 0}
+    - {x: -279.4526, y: -16.34069}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 4, y: 4}
@@ -193,6 +201,8 @@ MonoBehaviour:
     RandomRewardRange: {x: 1, y: 1}
     RandomRewardChance: 0.25
     Sprite: {fileID: 21300000, guid: 1fc822d9766534c4a812ea2bc7abee9a, type: 3}
+    BumpClip: {fileID: 8300000, guid: d1a1e69bf0659384ab7435caadf98695, type: 3}
+    CrashClip: {fileID: 8300000, guid: a1e38e7a58f1ab448b1c7dbcd6ca2aa1, type: 3}
     IsBossLevel: 1
     RewardKnifeName: Red
   - ID: 5
@@ -232,6 +242,8 @@ MonoBehaviour:
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
     Sprite: {fileID: 21300000, guid: 457027a8769c1cb4a838a8fb51ca14fc, type: 3}
+    BumpClip: {fileID: 8300000, guid: dd974f52efe5a5545acbe57fe2d3aede, type: 3}
+    CrashClip: {fileID: 8300000, guid: bef3fed1f77ffbb428531a5f33165046, type: 3}
     IsBossLevel: 0
     RewardKnifeName: 
   - ID: 6
@@ -260,9 +272,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 1
       m_RotationOrder: 4
-    ObstaclesItemsAmount: 2
+    ObstaclesItemsAmount: 1
     ObstaclesItemsPositions:
-    - {x: 274.35, y: 55.6135}
     - {x: 151.2468, y: 235.553}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
@@ -273,6 +284,8 @@ MonoBehaviour:
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
     Sprite: {fileID: 21300000, guid: 28b0cb1acbc827c4183d557b99330f24, type: 3}
+    BumpClip: {fileID: 8300000, guid: dd974f52efe5a5545acbe57fe2d3aede, type: 3}
+    CrashClip: {fileID: 8300000, guid: bef3fed1f77ffbb428531a5f33165046, type: 3}
     IsBossLevel: 0
     RewardKnifeName: 
   - ID: 
@@ -312,6 +325,8 @@ MonoBehaviour:
     RandomRewardRange: {x: 1, y: 2}
     RandomRewardChance: 0.25
     Sprite: {fileID: 21300000, guid: 6766f1a318e25f045a4a671e6b0d0444, type: 3}
+    BumpClip: {fileID: 8300000, guid: d1a1e69bf0659384ab7435caadf98695, type: 3}
+    CrashClip: {fileID: 8300000, guid: a1e38e7a58f1ab448b1c7dbcd6ca2aa1, type: 3}
     IsBossLevel: 1
     RewardKnifeName: 
   ObstaclePresets: {fileID: 11400000, guid: 564409839299f24468b21ef67a5dba4b, type: 2}

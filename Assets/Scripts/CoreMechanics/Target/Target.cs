@@ -30,9 +30,8 @@ public class Target : MonoBehaviour
     [SerializeField] private GameObject launchKnivesPoint;
     [SerializeField] private List<GameObject> dependentObjects = new List<GameObject>();
 
-    [Header("Audio")]
-    [SerializeField] private AudioClip bumpClip;
-    [SerializeField] private AudioClip crashClip;
+    private AudioClip bumpClip;
+    private AudioClip crashClip;
 
     public GameObject LaunchKnivesPoint => launchKnivesPoint;
 
@@ -44,7 +43,8 @@ public class Target : MonoBehaviour
         obstaclesPool.CreateItems(defaultObstacleAmount);
     }
 
-    public void SetTarget(AnimationCurve rotationCurve, Sprite targetSprite, List<Vector2> rewardItemsPositions, List<Vector2> obstaclesItemsPositions)
+    public void SetTarget(AnimationCurve rotationCurve, Sprite targetSprite, List<Vector2> rewardItemsPositions, List<Vector2> obstaclesItemsPositions, 
+                          AudioClip bumpClip, AudioClip crashClip)
     {
         SetDependentObjectsActive(true);
 
@@ -56,6 +56,9 @@ public class Target : MonoBehaviour
 
         selfAnimator.SetTrigger(createTriggerName);
         rotation.SetCurve(rotationCurve);
+
+        this.bumpClip = bumpClip;
+        this.crashClip = crashClip;
     }
 
     public void AnimatableDestroy(Action completeCallback, float delay = 0)

@@ -46,7 +46,7 @@ MonoBehaviour:
     RandomObstacleRange: {x: 0, y: 0}
     RewardItemsAmount: 1
     RewardItemsPositions:
-    - {x: 306.03528, y: 49.420704}
+    - {x: -284.08298, y: 124.084045}
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 3}
     RandomRewardChance: 0.25
@@ -92,8 +92,8 @@ MonoBehaviour:
       m_RotationOrder: 0
     ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
-    - {x: -270.6358, y: -71.53365}
     - {x: 274.35, y: 55.6135}
+    - {x: 151.2468, y: 235.553}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 2, y: 2}
@@ -142,17 +142,15 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 1
       m_RotationOrder: 0
-    ObstaclesItemsAmount: 3
+    ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
+    - {x: -270.6358, y: -71.53365}
     - {x: 274.35, y: 55.6135}
-    - {x: 151.2468, y: 235.553}
-    - {x: -63.60067, y: 272.6092}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 3}
     RewardItemsAmount: 1
-    RewardItemsPositions:
-    - {x: 281.77222, y: -129.24557}
+    RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 1}
     RandomRewardChance: 0.5
@@ -176,8 +174,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 10
-        value: 360
+        time: 5.8789062
+        value: 353.20755
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -189,10 +187,10 @@ MonoBehaviour:
       m_RotationOrder: 4
     ObstaclesItemsAmount: 4
     ObstaclesItemsPositions:
-    - {x: -3.468012, y: -279.9085}
-    - {x: -8.173829, y: 279.8106}
-    - {x: 279.93, y: 0}
-    - {x: -279.4526, y: -16.34069}
+    - {x: 18.91199, y: -279.2904}
+    - {x: -69.03979, y: 271.2827}
+    - {x: 55.83196, y: 274.3057}
+    - {x: -67.18954, y: -271.7469}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 4, y: 4}
@@ -215,16 +213,16 @@ MonoBehaviour:
         time: 0
         value: 0
         inSlope: 0
-        outSlope: 36
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 10
-        value: 360
+        time: 5.9765625
+        value: 353.20755
         inSlope: 36
-        outSlope: 0
+        outSlope: 36
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
@@ -256,16 +254,34 @@ MonoBehaviour:
         time: 0
         value: 0
         inSlope: 0
-        outSlope: 36
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 4.1048603
+        value: 186.61932
+        inSlope: 36.000008
+        outSlope: 36.000008
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 7.5573835
+        value: 168.19693
+        inSlope: 27.296242
+        outSlope: 27.296242
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 10
         value: 360
         inSlope: 36
-        outSlope: 0
+        outSlope: 36
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
@@ -273,11 +289,10 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 1
       m_RotationOrder: 4
-    ObstaclesItemsAmount: 3
+    ObstaclesItemsAmount: 2
     ObstaclesItemsPositions:
     - {x: 274.35, y: 55.6135}
     - {x: 151.2468, y: 235.553}
-    - {x: -63.60067, y: 272.6092}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 1, y: 4}
@@ -300,29 +315,60 @@ MonoBehaviour:
         time: 0
         value: 0
         inSlope: 0
-        outSlope: 36
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 10
-        value: 360
-        inSlope: 36
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
+      - serializedVersion: 3
+        time: 2.562564
+        value: -60.237213
+        inSlope: 36.000004
+        outSlope: 36.000004
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 3.272326
+        value: 72.6937
+        inSlope: 69.77292
+        outSlope: 69.77292
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 8.175581
+        value: 186.52516
+        inSlope: 50.759018
+        outSlope: 50.759018
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 10
+        value: 360
+        inSlope: 36
+        outSlope: 36
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
-      m_PostInfinity: 2
+      m_PostInfinity: 1
       m_RotationOrder: 4
-    ObstaclesItemsAmount: 0
-    ObstaclesItemsPositions: []
+    ObstaclesItemsAmount: 4
+    ObstaclesItemsPositions:
+    - {x: -3.468012, y: -279.9085}
+    - {x: -8.173829, y: 279.8106}
+    - {x: 279.93, y: 0}
+    - {x: -279.4526, y: -16.34069}
     DymamicObstaclesRandom: 1
     RandomObstacle: 1
     RandomObstacleRange: {x: 4, y: 4}
-    RewardItemsAmount: 0
+    RewardItemsAmount: 1
     RewardItemsPositions: []
     RandomReward: 1
     RandomRewardRange: {x: 1, y: 2}

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "565917786829",
+    "project_id": "knifehit-e2d57",
+    "storage_bucket": "knifehit-e2d57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565917786829:android:c2b496d17b918170e2bf84",
+        "android_client_info": {
+          "package_name": "com.dorVeytarn.KnifeHit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565917786829-lo145cgl16p3i9ik8j3jnan38rc61hil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATR72M27jIWw4p-nRkKOR5x3VOuFWBrig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565917786829-lo145cgl16p3i9ik8j3jnan38rc61hil.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

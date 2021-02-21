@@ -48,11 +48,16 @@ public class KnifeLauncher : MonoBehaviour
         if (knifeBlocked || knifePool == null || knifePool.CanGetItem == false)
             return;
 
-        var knife = knifePool.GetNextItem();
+        bool lastKnife = (knifePool.ItemCount - 1 == knifePool.ItemMaxCount - levelCreator.CurrentLevel.RequiredKnifeAmount);
+
+        var knife = knifePool.GetNextItem(!lastKnife);
+
+        if (knife == null)
+            return;
 
         Action lastKnifeCallback = null;
 
-        if (knifePool.ItemCount == knifePool.ItemMaxCount - levelCreator.CurrentLevel.RequiredKnifeAmount)
+        if (lastKnife)
             lastKnifeCallback = LastKnifeFinished;
 
         knife.SetAndLaunchKnife(targetParent.transform, speed, offset, lastKnifeCallback, KnifeClashed);

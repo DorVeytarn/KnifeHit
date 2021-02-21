@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
 {
-    [SerializeField] private GameObject objectToSpawn;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] protected GameObject objectToSpawn;
 
     protected List<T> items = new List<T>();
     protected List<T> usedItems = new List<T>();
@@ -106,5 +106,17 @@ public class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     public bool CheckRequiredItemsAmount(int requiredAmount)
     {
         return items.Count >= requiredAmount;
+    }
+
+    public void SetNewSpawnObject(GameObject newObject)
+    {
+        ReturnItems();
+
+        for (int i = 0; i < items.Count; i++)
+            Destroy(items[i].gameObject);
+
+        items.Clear();
+
+        objectToSpawn = newObject;
     }
 }

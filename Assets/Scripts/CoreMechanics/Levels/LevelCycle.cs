@@ -53,10 +53,13 @@ public class LevelCycle : MonoBehaviour
 
         if (levelCreator.CurrentLevel.IsBossLevel)
         {
-            Debug.Log("NEW KNIFE BITCH!");
+            levelCreator.DestroyLevel(() =>
+            {
+                PopupManager.Instance.OpenPopup(PopupList.BossDefeat, null, () => levelCreator.CreateLevel());
+            });
         }
-
-        levelCreator.DestroyLevel(() => levelCreator.CreateLevel());
+        else
+            levelCreator.DestroyLevel(() => levelCreator.CreateLevel());
     }
 
     private void LevelFailed()

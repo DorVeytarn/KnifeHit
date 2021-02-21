@@ -114,7 +114,7 @@ public class LevelsDatabaseCustomEditor : Editor
             }
 
             if (level.IsBossLevel = EditorGUILayout.Toggle("Is Boss", level.IsBossLevel))
-                level.rewardKnifeID = EditorGUILayout.TextField("Reward Knife", level.rewardKnifeID);
+                level.RewardKnifeName = EditorGUILayout.TextField("Reward Knife", level.RewardKnifeName);
 
             GUILayout.Space(14);
         }

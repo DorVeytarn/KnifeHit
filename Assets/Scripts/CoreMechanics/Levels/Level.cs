@@ -31,5 +31,5 @@ public class Level
 
     [Header("If Is Boss")]
     public bool IsBossLevel;
-    public string rewardKnifeID;
+    public string RewardKnifeName;
 }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38b4eeaf68303d4394f96b75145ddf6, type: 3}
+  m_Name: KnivesDatabase
+  m_EditorClassIdentifier: 
+  knives:
+  - price: 0
+    knifeType: 0
+    name: Default
+    Model: {fileID: 5530826727688580119, guid: 3c5882f0bcf8aaa40a2ed7bfe023cd10, type: 3}
+  - price: 0
+    knifeType: 0
+    name: Red
+    Model: {fileID: 5530826727688580119, guid: b1cf732908091a64894d2cc12054c45a, type: 3}
+  - price: 0
+    knifeType: 0
+    name: Blue
+    Model: {fileID: 5530826727688580119, guid: dd0f3476b3db8bc428ed355c4b8b1cdf, type: 3}

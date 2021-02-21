@@ -13,5 +13,5 @@ public static class PopupList
     public static readonly string Main = "Main";
     public static readonly string Loss = "Loss";
     public static readonly string BossFight = "BossFight";
-    public static readonly string WonBoss = "WonBoss";
+    public static readonly string BossDefeat = "BossDefeat";
 }

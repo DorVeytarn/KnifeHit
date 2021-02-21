@@ -20,7 +20,7 @@ public class UserDataManager : MonoBehaviour
     public Action<int> RewardAmountChanged;
     public Action<int> ScoreChanged;
     public Action<int> HightScoreChanged;
-    public Action<string> KnivesChanged;
+    public Action<KnifeData> KnivesChanged;
 
     public UserData CurrentUserData { get; private set; }
     public int CurrentRewardAmount { get; private set; }
@@ -54,13 +54,6 @@ public class UserDataManager : MonoBehaviour
         SaveCurrentUserData();
     }
 
-    private void UpadateAllDatas()
-    {
-        RewardAmountChanged?.Invoke(CurrentRewardAmount);
-        ScoreChanged?.Invoke(CurrentScore);
-        KnivesChanged?.Invoke(currentKnives[currentKnives.Count - 1]);
-    }
-
     public void UpdateUserData(UDType UDType, object arg)
     {
         switch (UDType)
@@ -80,8 +73,8 @@ public class UserDataManager : MonoBehaviour
                 }
                 break;
             case UDType.Knife:
-                    currentKnives.Add(Convert.ToString(arg));
-                KnivesChanged?.Invoke(currentKnives[currentKnives.Count - 1]);
+                    currentKnives.Add((arg as KnifeData).Name);
+                KnivesChanged?.Invoke(arg as KnifeData);
                 break;
         }
     }
@@ -94,8 +87,8 @@ public class UserDataManager : MonoBehaviour
         PlayerPrefsUtility.SaveUserDataField(CurrentRewardAmount, HightScore, currentKnives);
     }
 
-    private void ClearCurrentScore()
+    public bool ChekKnifeAvailability(string knifeName)
     {
-        CurrentScore = 0;
+        return currentKnives.Contains(knifeName);
     }
 }

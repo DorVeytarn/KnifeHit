@@ -32,6 +32,8 @@ public class UserDataManager : MonoBehaviour
     public int HightScore { get; private set; }
     public KnifeData CurrentKnife { get; private set; }
 
+    public int CashedScore;
+
     private void Awake()
     {
         SceneComponentProvider.RegisterComponent(typeof(UserDataManager), this);

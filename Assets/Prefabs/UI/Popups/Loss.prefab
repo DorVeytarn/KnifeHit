@@ -1291,6 +1291,7 @@ MonoBehaviour:
   popupName: Loss
   selfButton: {fileID: 8421298291246064094}
   restartButton: {fileID: 8421298292276610976}
+  score: {fileID: 8421298291411113250}
 --- !u!1001 &6259240656962284862
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -60,12 +60,19 @@ public class LevelCycle : MonoBehaviour
         }
         else
             levelCreator.DestroyLevel(() => levelCreator.CreateLevel());
+
+        dataManager.CashedScore = 0;
     }
 
     private void LevelFailed()
     {
         isFailed = true;
-        PopupManager.Instance.OpenPopup(PopupList.Loss, () => levelCreator.Target.ClearTarget(), () => { isFailed = false; });
+        PopupManager.Instance.OpenPopup(PopupList.Loss, () =>
+        {
+            levelCreator.Target.ClearTarget();
+            dataManager.CashedScore = dataManager.CurrentScore;
+
+        }, () => { isFailed = false; });
 
         Failed?.Invoke();
     }

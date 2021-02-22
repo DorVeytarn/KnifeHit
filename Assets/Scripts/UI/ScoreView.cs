@@ -27,7 +27,10 @@ public class ScoreView : UserProgressView
             UpdateView(dataManager.HightScore);
         }
         else
+        {
             dataManager.ScoreChanged += UpdateView;
+            UpdateView(dataManager.CurrentScore);
+        }
     }
 
 
